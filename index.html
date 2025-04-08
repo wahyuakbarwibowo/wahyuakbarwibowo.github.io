@@ -7,7 +7,7 @@
   <title>Profile Saya</title>
   <style>
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
       background: #f7f7f7;
@@ -31,7 +31,7 @@
 
     .profile-picture {
       width: 150px;
-      height: 150px;
+      height: auto;
       border-radius: 50%;
       display: block;
       margin: 0 auto;
@@ -76,6 +76,20 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       margin: 0.5rem 0;
     }
+
+    .open-link {
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.2s ease, border-bottom 0.2s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .open-link:hover,
+    .open-link:focus {
+      color: #0056b3;
+      border-bottom: 1px solid #0056b3;
+      outline: none;
+    }
   </style>
 </head>
 
@@ -90,7 +104,7 @@
     <img src="assets/img/wahyu.jpg" alt="Foto Profil" class="profile-picture">
     <div class="bio">
       <p>
-        Halo! Saya adalah Saya adalah Wahyu Akbar Wibowo,
+        Halo! Perkenal nama saya adalah Wahyu Akbar Wibowo,
         seorang web programmer yang sangat termotivasi dengan pengalaman di bidang pengembangan perangkat lunak.
         Saya memiliki passion yang mendalam dalam menciptakan solusi inovatif dan efisien.
         Dengan pengalaman lebih dari 4.5 Tahun, saya telah bekerja dengan berbagai teknologi web dan
@@ -99,17 +113,29 @@
     </div>
     <div class="content">
       <div class="section">
-        <h2>Tentang Saya</h2>
+        <h2>Ringkasan Profesional</h2>
         <p>
-          Saya memiliki pengalaman lebih dari 4.5 Tahun di industri pengembangan perangkat lunak.
-          Saya telah bekerja dengan berbagai perusahaan dan memiliki keahlian dalam berbagai
-          bahasa pemrograman seperti JavaScript, Golang dan Rust.
-          Saya selalu berusaha untuk belajar hal baru dan memperbarui keterampilan saya
-          untuk tetap relevan di industri yang cepat berubah ini.
+          Web Engineer dengan pengalaman dengan pengembangan aplikasi web menggunakan
+          teknologi modern seperti JavaScript, Node.js, PHP dan Golang.
+          Memiliki pemahaman mendalam tentang arsitektur web,
+          pengelolaan database serta optimasi performa aplikasi.
+          Berorientasi pada solusi dan memiliki kemampuan untuk bekerja dalam
+          tim serta secara mandiri.
         </p>
       </div>
       <div class="section">
-        <h2>Pengalaman</h2>
+        <h2>Keahlian Teknis</h2>
+        <ul>
+          <li><strong>Backend:</strong> Node.js, Express.js, Nest.js, PHP (CodeIgniter), Golang (Fiber, Echo)</li>
+          <li><strong>Frontend:</strong> HTML, CSS, Javascript (React)</li>
+          <li><strong>Database:</strong> PostgreSQL, MySQL, MongoDB</li>
+          <li><strong>Version Controler:</strong> Git, Github, GitLab, Gitea</li>
+          <li><strong>DevOps & Tools:</strong> Docker, CI/CD, Firebase</li>
+          <li><strong>Metodologi:</strong> Agile, Scrum, Kanban</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>Pengalaman Kerja</h2>
         <ul>
           <li>Skyrain Studio Indonesia - Web Developer - 2020 - Sekarang</li>
         </ul>
@@ -117,19 +143,134 @@
       <div class="section">
         <h2>Pendidikan</h2>
         <ul>
-          <li>Universitas Trunojoyo Madura - Sarjana Komputer - 2020</li>
+          <li>Universitas Trunojoyo Madura (B) - Sarjana Komputer - 2016 - 2020</li>
         </ul>
       </div>
       <div class="section">
-        <h2>Projek</h2>
+        <h2>Pengalaman Projek</h2>
         <ul>
-          <li>Universitas Trunojoyo Madura - Sarjana Komputer - 2020</li>
+          <li>
+            <strong>E-Commerce Web App (Tepibojonegoro)</strong>
+            <p>
+              Membangun platform e-commerce menggunakan Golang (Echo), Express.js dan PostgreSQL. Menyedikan API untuk
+              Front-end yang menggunakan Next.js. Mengintegrasikan sistem pembayaran serta fitur manajemen produk
+            </p>
+            <p>
+              Skills: Golang, NodeJs, PostgreSQL
+            </p>
+            <p>
+              <a class="open-link" href="http://tepibojonegoro.com" target="_blank" rel="noopener noreferrer">
+                Menuju link
+              </a>
+            </p>
+          </li>
+          <li>
+            <strong>MAP Subsidi Tepat LPG Pertamina</strong>
+            <p>
+              Work on features according to project owner requirements, like enhancement some create transaction, security database with encryption or hashing
+            </p>
+            <p>
+              Skills: Golang, NodeJs, Scrum, Kafka, MySQL
+            </p>
+            <p>
+              <a class="open-link" href="https://subsiditepatlpg.mypertamina.id/merchant" target="_blank" rel="noopener noreferrer">
+                Menuju link
+              </a>
+            </p>
+          </li>
+          <li>
+            <strong>Finpay Core Switching Billing Payment</strong>
+            <p>
+              Mengembangkan API untuk CRUD channel, create payment transaction yang akan diteruskan ke biller.
+            </p>
+            <p>
+              Skills: Golang, MongoDB, Redis
+            </p>
+            <p>
+              <a class="open-link" href="https://hub.finpay.id/docs/finpay-billing/billing-payment" target="_blank" rel="noopener noreferrer">
+                Menuju link
+              </a>
+            </p>
+          </li>
+          <li>
+            <strong>OSS RBA</strong>
+            <p>
+              Hal yang saya lakukan:
+1. Membantu meningkatkan API integrasi dengan K/L/D
+2. Membuat API beberapa fitur peralatan.
+3. Membantu meningkatkan fitur monitoring service.
+            </p>
+            <p>
+              Skills: NodeJS, PostgreSQL, Scrum, RabbitMQ
+            </p>
+            <p>
+              <a class="open-link" href="https://oss.go.id" target="_blank" rel="noopener noreferrer">
+                Menuju link
+              </a>
+            </p>
+          </li>
+          <li>
+            <strong>Dashboard Pertamina</strong>
+            <p>
+              Hal yang saya lakukan:
+1. Wapping API dashboard untuk kebutuhan aplikasi mobile.
+2. Membuat API untuk notifikasi.
+            </p>
+            <p>
+              Skills: NodeJS, Kafka, MySQL
+            </p>
+            <p>
+              <a class="open-link" href="https://play.google.com/store/apps/details?id=com.pertamina.informs&hl=in&gl=US" target="_blank" rel="noopener noreferrer">
+                Menuju link
+              </a>
+            </p>
+          </li>
+          <li>
+            <strong>Sistem Manajemen Konten</strong>
+            <p>
+              Mengembangkan CMS berbasis PHP (CodeIgniter) untuk mengelola konten website secara dinamis dengan fitur
+              multi-user dan role-based access control.
+            </p>
+            <p>
+              Skills: PHP, MySQL
+            </p>
+            <p>
+              <a class="open-link" href="http://yakestelkom.or.id" target="_blank" rel="noopener noreferrer">
+                Menuju link
+              </a>
+            </p>
+          </li>
+          <li>
+            <strong>Aplikasi Pijar Sekolah</strong>
+            <p>
+              Mengembangkan API untuk CRUD user dashboard dan report service.
+            </p>
+            <p>
+              Skills: NodeJS, Scrum
+            </p>
+            <p>
+              <a class="open-link" href="http://pijarsekolah.id" target="_blank" rel="noopener noreferrer">
+                Menuju link
+              </a>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>Bahasa Pemrograman</h2>
+        <ul>
+          <li>Javascript</li>
+          <li>Golang</li>
+          <li>PHP</li>
+          <li>Python</li>
+          <li>Typescript</li>
         </ul>
       </div>
       <div class="section">
         <h2>Kontak</h2>
         <div class="contact-info">
-          <p>Email: wahyuwibowoworker@gmail.com</p>
+          <p>Phone: +6282132510994</p>
+          <p>Email: <a href="mailto:wahyuwibowoworker@gmail.com">wahyuwibowoworker@gmail.com</a> </p>
           <p>LinkedIn: wahyuakbarwibowo</p>
         </div>
       </div>
