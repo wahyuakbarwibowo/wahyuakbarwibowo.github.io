@@ -1,281 +1,284 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Saya</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-    }
-
-    .header {
-      background: #2c3e50;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    .container {
-      padding: 2rem;
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      max-width: 800px;
-      margin: 2rem auto;
-    }
-
-    .profile-picture {
-      width: 150px;
-      height: auto;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .bio {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .bio p {
-      text-align: justify;
-    }
-
-    .content {
-      margin-top: 2rem;
-    }
-
-    .section {
-      margin-bottom: 2rem;
-    }
-
-    .section h2 {
-      border-bottom: 2px solid #4caf50;
-      padding-bottom: 0.5rem;
-      color: #2c3e50;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .contact-info p {
-      background: #f4f4f4;
-      padding: 1rem;
-      border-radius: 8px;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin: 0.5rem 0;
-    }
-
-    .open-link {
-      color: #007bff;
-      text-decoration: none;
-      transition: color 0.2s ease, border-bottom 0.2s ease;
-      border-bottom: 1px solid transparent;
-    }
-
-    .open-link:hover,
-    .open-link:focus {
-      color: #0056b3;
-      border-bottom: 1px solid #0056b3;
-      outline: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio & CV - Web Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
 </head>
 
-<body>
-
-  <div class="header">
-    <h1>Wahyu Akbar Wibowo</h1>
-    <p>Web Engineer</p>
-  </div>
-
-  <div class="container">
-    <img src="assets/img/wahyu.jpg" alt="Foto Profil" class="profile-picture">
-    <div class="bio">
-      <p>
-        Halo! Perkenal nama saya adalah Wahyu Akbar Wibowo,
-        seorang web programmer yang sangat termotivasi dengan pengalaman di bidang pengembangan perangkat lunak.
-        Saya memiliki passion yang mendalam dalam menciptakan solusi inovatif dan efisien.
-        Dengan pengalaman lebih dari 4.5 Tahun, saya telah bekerja dengan berbagai teknologi web dan
-        tim untuk mengembangkan aplikasi yang dapat meningkatkan kehidupan sehari-hari.
-      </p>
-    </div>
-    <div class="content">
-      <div class="section">
-        <h2>Ringkasan Profesional</h2>
-        <p>
-          Web Engineer dengan pengalaman dengan pengembangan aplikasi web menggunakan
-          teknologi modern seperti JavaScript, Node.js, PHP dan Golang.
-          Memiliki pemahaman mendalam tentang arsitektur web,
-          pengelolaan database serta optimasi performa aplikasi.
-          Berorientasi pada solusi dan memiliki kemampuan untuk bekerja dalam
-          tim serta secara mandiri.
-        </p>
-      </div>
-      <div class="section">
-        <h2>Keahlian Teknis</h2>
-        <ul>
-          <li><strong>Backend:</strong> Node.js, Express.js, Nest.js, PHP (CodeIgniter), Golang (Fiber, Echo)</li>
-          <li><strong>Frontend:</strong> HTML, CSS, Javascript (React)</li>
-          <li><strong>Database:</strong> PostgreSQL, MySQL, MongoDB</li>
-          <li><strong>Version Controler:</strong> Git, Github, GitLab, Gitea</li>
-          <li><strong>DevOps & Tools:</strong> Docker, CI/CD, Firebase</li>
-          <li><strong>Metodologi:</strong> Agile, Scrum, Kanban</li>
-        </ul>
-      </div>
-      <div class="section">
-        <h2>Pengalaman Kerja</h2>
-        <ul>
-          <li>Skyrain Studio Indonesia - Web Developer - 2020 - Sekarang</li>
-        </ul>
-      </div>
-      <div class="section">
-        <h2>Pendidikan</h2>
-        <ul>
-          <li>Universitas Trunojoyo Madura (B) - Sarjana Komputer - 2016 - 2020</li>
-        </ul>
-      </div>
-      <div class="section">
-        <h2>Pengalaman Projek</h2>
-        <ul>
-          <li>
-            <strong>E-Commerce Web App (Tepibojonegoro)</strong>
-            <p>
-              Membangun platform e-commerce menggunakan Golang (Echo), Express.js dan PostgreSQL. Menyedikan API untuk
-              Front-end yang menggunakan Next.js. Mengintegrasikan sistem pembayaran serta fitur manajemen produk
-            </p>
-            <p>
-              Skills: Golang, NodeJs, PostgreSQL
-            </p>
-            <p>
-              <a class="open-link" href="http://tepibojonegoro.com" target="_blank" rel="noopener noreferrer">
-                Menuju link
-              </a>
-            </p>
-          </li>
-          <li>
-            <strong>MAP Subsidi Tepat LPG Pertamina</strong>
-            <p>
-              Work on features according to project owner requirements, like enhancement some create transaction, security database with encryption or hashing
-            </p>
-            <p>
-              Skills: Golang, NodeJs, Scrum, Kafka, MySQL
-            </p>
-            <p>
-              <a class="open-link" href="https://subsiditepatlpg.mypertamina.id/merchant" target="_blank" rel="noopener noreferrer">
-                Menuju link
-              </a>
-            </p>
-          </li>
-          <li>
-            <strong>Finpay Core Switching Billing Payment</strong>
-            <p>
-              Mengembangkan API untuk CRUD channel, create payment transaction yang akan diteruskan ke biller.
-            </p>
-            <p>
-              Skills: Golang, MongoDB, Redis
-            </p>
-            <p>
-              <a class="open-link" href="https://hub.finpay.id/docs/finpay-billing/billing-payment" target="_blank" rel="noopener noreferrer">
-                Menuju link
-              </a>
-            </p>
-          </li>
-          <li>
-            <strong>OSS RBA</strong>
-            <p>
-              Hal yang saya lakukan:
-1. Membantu meningkatkan API integrasi dengan K/L/D
-2. Membuat API beberapa fitur peralatan.
-3. Membantu meningkatkan fitur monitoring service.
-            </p>
-            <p>
-              Skills: NodeJS, PostgreSQL, Scrum, RabbitMQ
-            </p>
-            <p>
-              <a class="open-link" href="https://oss.go.id" target="_blank" rel="noopener noreferrer">
-                Menuju link
-              </a>
-            </p>
-          </li>
-          <li>
-            <strong>Dashboard Pertamina</strong>
-            <p>
-              Hal yang saya lakukan:
-1. Wapping API dashboard untuk kebutuhan aplikasi mobile.
-2. Membuat API untuk notifikasi.
-            </p>
-            <p>
-              Skills: NodeJS, Kafka, MySQL
-            </p>
-            <p>
-              <a class="open-link" href="https://play.google.com/store/apps/details?id=com.pertamina.informs&hl=in&gl=US" target="_blank" rel="noopener noreferrer">
-                Menuju link
-              </a>
-            </p>
-          </li>
-          <li>
-            <strong>Sistem Manajemen Konten</strong>
-            <p>
-              Mengembangkan CMS berbasis PHP (CodeIgniter) untuk mengelola konten website secara dinamis dengan fitur
-              multi-user dan role-based access control.
-            </p>
-            <p>
-              Skills: PHP, MySQL
-            </p>
-            <p>
-              <a class="open-link" href="http://yakestelkom.or.id" target="_blank" rel="noopener noreferrer">
-                Menuju link
-              </a>
-            </p>
-          </li>
-          <li>
-            <strong>Aplikasi Pijar Sekolah</strong>
-            <p>
-              Mengembangkan API untuk CRUD user dashboard dan report service.
-            </p>
-            <p>
-              Skills: NodeJS, Scrum
-            </p>
-            <p>
-              <a class="open-link" href="http://pijarsekolah.id" target="_blank" rel="noopener noreferrer">
-                Menuju link
-              </a>
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div class="section">
-        <h2>Bahasa Pemrograman</h2>
-        <ul>
-          <li>Javascript</li>
-          <li>Golang</li>
-          <li>PHP</li>
-          <li>Python</li>
-          <li>Typescript</li>
-        </ul>
-      </div>
-      <div class="section">
-        <h2>Kontak</h2>
-        <div class="contact-info">
-          <p>Phone: +6282132510994</p>
-          <p>Email: <a href="mailto:wahyuwibowoworker@gmail.com">wahyuwibowoworker@gmail.com</a> </p>
-          <p>LinkedIn: wahyuakbarwibowo</p>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-all duration-500">
+    <!-- Navbar -->
+    <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Wahyu Akbar Wibowo</h1>
+            <nav class="space-x-6">
+                <a href="#about" class="hover:text-blue-600">Tentang</a>
+                <a href="#cv" class="hover:text-blue-600">CV</a>
+                <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
+                <a href="#contact" class="hover:text-blue-600">Kontak Saya</a>
+                <button onclick="toggleDarkMode()" id="theme-toggle" class="text-2xl">
+                    🌙
+                </button>
+            </nav>
         </div>
-      </div>
-    </div>
-  </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-4">Halo, Saya <span class="underline decoration-white">Web Engineer</span>
+            </h2>
+            <p class="text-lg mb-6">Membangun Website & Aplikasi Web Modern, Responsif, dan Cepat 🚀</p>
+            <a href="#portfolio"
+                class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-all">Lihat
+                Pengalaman Projek Saya</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold">Tentang Saya</h2>
+        </div>
+        <div class="md:flex md:space-x-10">
+            <img src="./assets/img/wahyu.jpg" alt="Foto Profil"
+                class="w-60 h-60 mx-auto md:mx-0 rounded-full object-cover mb-6 md:mb-0">
+            <div class="flex-1">
+                <p class="text-lg mb-4">
+                    Saya seorang Web Engineer dengan keahlian dalam pengembangan Backend & Frontend menggunakan
+                    teknologi modern seperti Go, React, Next.js, dan Node.js.
+                    Saya suka membangun aplikasi yang bersih, cepat, dan user-friendly.
+                </p>
+                <p class="text-lg">
+                    Fokus saya adalah menggabungkan design thinking dan coding untuk membuat solusi digital terbaik.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">CV Singkat</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Keahlian</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>HTML, CSS, JavaScript, TypeScript</li>
+                        <li>React, Next.js, TailwindCSS</li>
+                        <li>Node.js, Express, Go (Echo, Fiber)</li>
+                        <li>PostgreSQL, MySQL, MongoDB, Firebase</li>
+                        <li>Agile, Scrum, Kanban</li>
+                        <li>Git, Docker</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Pengalaman</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Back End Developer - PT Padepokan Tujuh Sembilan (Mei 2025 - Sekarang)</li>
+                        <li>Full Stack Developer - PT Skyrain Studio Indonesia (Agustus 2020 - April 2025)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <button onclick="window.print()"
+                    class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-all">Download
+                    CV</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold">Portfolio Project</h2>
+            <p class="text-gray-600 dark:text-gray-400">Beberapa projek yang saya kerjakan 👇</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Card 1 -->
+            <a href="http://tepibojonegoro.com" target="_blank"
+                class="group bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-blue-600">E-Commerce Platform (Tepibojonegoro)
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Membangun platform e-commerce menggunakan Golang (Echo), Express.js dan PostgreSQL. Menyedikan
+                        API untuk Front-end yang menggunakan Next.js. Mengintegrasikan sistem pembayaran serta fitur
+                        manajemen produk.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="https://subsiditepatlpg.mypertamina.id/merchant" target="_blank"
+                class="group bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-blue-600">MAP Subsidi Tepat LPG Pertamina</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Work on features according to project owner requirements, like enhancement some create
+                        transaction, security database with encryption or hashing.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="https://hub.finpay.id/docs/finpay-billing/billing-payment" target="_blank"
+                class="group bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-blue-600">Finpay Core Switching Billing Payment
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Mengembangkan API untuk CRUD channel, create payment transaction yang akan diteruskan ke biller.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="https://oss.go.id"
+                class="group bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col h-full min-h-[320px]">
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-blue-600">OSS RBA</h3>
+
+                    <!-- Paragraf pembuka -->
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                        Hal yang saya lakukan:
+                    </p>
+
+                    <!-- Ordered List -->
+                    <ol class="list-decimal list-outside text-gray-600 dark:text-gray-300 space-y-1 pl-6">
+                        <li>Mengembangkan API integrasi dengan Kementrian, Lembaga atau Daerah.</li>
+                        <li>Membuat API beberapa fitur peralatan.</li>
+                        <li>Mengembangkan fitur monitoring service.</li>
+                    </ol>
+                </div>
+            </a>
+
+            <!-- Card 5 -->
+            <a href="https://play.google.com/store/apps/details?id=com.pertamina.informs&hl=in&gl=US"
+                class="group bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col h-full min-h-[320px]">
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-blue-600">OSS RBA</h3>
+
+                    <!-- Paragraf pembuka -->
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">
+                        Hal yang saya lakukan:
+                    </p>
+
+                    <!-- Ordered List -->
+                    <ol class="list-decimal list-outside text-gray-600 dark:text-gray-300 space-y-1 pl-6">
+                        <li>Wapping API dashboard untuk kebutuhan aplikasi mobile.</li>
+                        <li>Membuat API untuk notifikasi.</li>
+                    </ol>
+                </div>
+            </a>
+
+            <!-- Card 6 -->
+            <a href="https://yakestelkom.or.id" target="_blank"
+                class="group bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-blue-600">Sistem Manajemen Konten</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Mengembangkan CMS berbasis PHP (CodeIgniter) untuk mengelola konten website secara dinamis
+                        dengan fitur
+                        multi-user dan role-based access control.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card 7 -->
+            <a href="http://pijarsekolah.id" target="_blank"
+                class="group bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-blue-600">Aplikasi Pijar Sekolah
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Mengembangkan API untuk CRUD user dashboard dan report service.
+                    </p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Kontak Saya</h2>
+            <p class="text-gray-600 dark:text-gray-400">Jika Anda tertarik untuk bekerja sama atau memiliki pertanyaan,
+                jangan ragu untuk menghubungi saya!</p>
+        </div>
+
+        <div class="flex justify-center gap-6">
+            <!-- Contact Info -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 w-full max-w-xs">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Email</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Email saya untuk kolaborasi dan pertanyaan.</p>
+                <a href="mailto:wahyuakbar.work@gmail.com"
+                    class="text-blue-600 dark:text-blue-400 hover:underline mt-4 block">wahyuakbar.work@gmail.com</a>
+            </div>
+
+            <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 w-full max-w-xs">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white">GitHub</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Lihat repositori dan proyek open source saya di GitHub.
+                </p>
+                <a href="https://github.com/wahyuakbarwibowo" target="_blank"
+                    class="text-blue-600 dark:text-blue-400 hover:underline mt-4 block">github.com/wahyuakbarwibowo</a>
+            </div>
+
+            <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 w-full max-w-xs">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white">LinkedIn</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Temukan lebih banyak tentang pengalaman profesional
+                    saya di LinkedIn.</p>
+                <a href="https://www.linkedin.com/in/wahyu-akbar-wibowo" target="_blank"
+                    class="text-blue-600 dark:text-blue-400 hover:underline mt-4 block">linkedin.com/in/wahyu-akbar-wibowo</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-gray-600 dark:text-gray-400">
+        <p>© 2025 Wahyu Akbar Wibowo x ChatGPT. Dibuat dengan ❤️ & TailwindCSS.</p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const themeToggle = document.getElementById('theme-toggle');
+
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙'; // kalau terang, tampilkan moon
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️'; // kalau gelap, tampilkan sun
+            }
+        }
+
+        // Set icon saat pertama kali load
+        window.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+                themeToggle.textContent = '☀️'; // dark mode aktif, tampilkan sun
+            } else {
+                themeToggle.textContent = '🌙'; // default light mode
+            }
+        });
+    </script>
 
 </body>
 
