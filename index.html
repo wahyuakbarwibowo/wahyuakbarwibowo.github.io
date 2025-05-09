@@ -15,10 +15,22 @@
 
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-all duration-500">
     <!-- Navbar -->
-    <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Wahyu Akbar Wibowo</h1>
-            <nav class="space-x-6">
+    <nav class="bg-white dark:bg-gray-800 p-4 shadow-lg fixed w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                Wahyu Akbar Wibowo
+            </div>
+
+            <!-- Burger Button -->
+            <button class="md:hidden" id="menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Menu Items Desktop -->
+            <div class="hidden md:flex space-x-6" id="menu">
                 <a href="#about" class="hover:text-blue-600">Tentang</a>
                 <a href="#cv" class="hover:text-blue-600">CV</a>
                 <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
@@ -26,9 +38,20 @@
                 <button onclick="toggleDarkMode()" id="theme-toggle" class="text-2xl">
                     🌙
                 </button>
-            </nav>
+            </div>
         </div>
-    </header>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden flex-col items-center space-y-4 mt-4 px-4" id="mobile-menu">
+            <a href="#about" class="hover:text-blue-600">Tentang</a>
+            <a href="#cv" class="hover:text-blue-600">CV</a>
+            <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
+            <a href="#contact" class="hover:text-blue-600">Kontak Saya</a>
+            <button onclick="toggleDarkMode()" id="theme-toggle" class="text-2xl">
+                🌙
+            </button>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-20">
@@ -101,7 +124,7 @@
     <section id="portfolio" class="py-20 max-w-6xl mx-auto px-6">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold">Portfolio Project</h2>
-            <p class="text-gray-600 dark:text-gray-400">Beberapa projek yang saya kerjakan 👇</p>
+            <p class="text-gray-600 dark:text-gray-400">Beberapa projek yang pernah saya kerjakan 👇</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
@@ -215,11 +238,11 @@
     <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Kontak Saya</h2>
-            <p class="text-gray-600 dark:text-gray-400">Jika Anda tertarik untuk bekerja sama atau memiliki pertanyaan,
+            <p class="text-gray-600 dark:text-gray-400 px-1">Jika Anda tertarik untuk bekerja sama atau memiliki pertanyaan,
                 jangan ragu untuk menghubungi saya!</p>
         </div>
 
-        <div class="flex justify-center gap-6">
+        <div class="flex flex-col items-center md:justify-center md:flex-row justify-center gap-6 px-4">
             <!-- Contact Info -->
             <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 w-full max-w-xs">
                 <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Email</h3>
@@ -277,6 +300,14 @@
             } else {
                 themeToggle.textContent = '🌙'; // default light mode
             }
+        });
+
+        // Navbar toggle script
+        const menuButton = document.getElementById('menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
         });
     </script>
 
