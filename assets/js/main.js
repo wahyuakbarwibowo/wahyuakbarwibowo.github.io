@@ -32,6 +32,30 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
     });
 });
 
+const cvModal = document.getElementById('cv-modal');
+const cvFrame = document.getElementById('cv-frame');
+const CV_URL = './assets/pdf/cv.pdf?v=2026-02';
+
+function openCvModal() {
+    // Load the PDF only on first open so it never blocks initial page load
+    if (!cvFrame.src) cvFrame.src = CV_URL + '#view=FitH';
+    cvModal.classList.remove('hidden');
+    cvModal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCvModal() {
+    cvModal.classList.add('hidden');
+    cvModal.classList.remove('flex');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !cvModal.classList.contains('hidden')) {
+        closeCvModal();
+    }
+});
+
 function toggleProjects() {
     const extra = document.getElementById('extra-projects');
     const btnText = document.getElementById('btn-text');
