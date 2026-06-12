@@ -1,27 +1,11 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Theme is applied before paint by the inline script in <head>;
+// icons swap via Tailwind dark: classes, so only persistence lives here.
 function toggleDarkMode() {
-    const html = document.documentElement;
-    const isDark = html.classList.toggle('dark');
+    const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    const icon = isDark ? '☀️' : '🌙';
-    document.getElementById('theme-toggle').innerHTML = icon;
-    document.getElementById('theme-toggle-mobile').innerHTML = icon;
 }
-
-window.addEventListener('DOMContentLoaded', () => {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const saved = localStorage.getItem('theme');
-    const useDark = saved === 'dark' || (!saved && prefersDark);
-    if (useDark) {
-        document.documentElement.classList.add('dark');
-        document.getElementById('theme-toggle').innerHTML = '☀️';
-        document.getElementById('theme-toggle-mobile').innerHTML = '☀️';
-    } else {
-        document.getElementById('theme-toggle').innerHTML = '🌙';
-        document.getElementById('theme-toggle-mobile').innerHTML = '🌙';
-    }
-});
 
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
