@@ -7,14 +7,14 @@ function toggleDarkMode() {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
+const nav = document.querySelector('nav');
+const navInner = nav.querySelector('div');
+
 window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.classList.add('py-4', 'shadow-xl');
-        nav.classList.remove('py-6');
-    } else {
-        nav.classList.remove('py-4', 'shadow-xl');
-    }
+    const scrolled = window.scrollY > 50;
+    nav.classList.toggle('shadow-xl', scrolled);
+    navInner.classList.toggle('h-16', scrolled);
+    navInner.classList.toggle('h-20', !scrolled);
 });
 
 const menuButton = document.getElementById('menu-button');
