@@ -1,6 +1,6 @@
 # wahyuakbarwibowo.github.io
 
-Personal portfolio — Wahyu Akbar Wibowo, Software Engineer (Backend Specialist).
+Personal portfolio — Wahyu Akbar Wibowo, Senior Fullstack Developer. Profile, experience, projects, services & pricing (IDR), and workflow.
 
 **Live:** https://wahyuakbarwibowo.github.io
 
@@ -8,9 +8,9 @@ Personal portfolio — Wahyu Akbar Wibowo, Software Engineer (Backend Specialist
 
 Static site: single `index.html` + `assets/js/main.js`. No build step.
 
-- Tailwind CSS via CDN (dark mode, custom brand palette)
-- Vanilla JS: theme toggle, mobile menu, CV preview modal, project grid
-- Fonts: Inter & Outfit (Google Fonts)
+- Tailwind CSS via CDN (dark mode via CSS-variable color tokens)
+- Vanilla JS: theme toggle, CV preview modal, project list toggle, email templates, rotating quotes
+- Fonts: Inter & Instrument Serif (Google Fonts)
 
 ## Development
 
