@@ -1,0 +1,75 @@
+[
+  {
+    "slug": "design-system",
+    "title": "Design system itu bukan soal warna dan komponen",
+    "date": "2026-09-11",
+    "excerpt": "Yang bikin design system berguna bukan library komponennya, tapi kesepakatan yang dipegang semua orang sebelum komponen itu dipakai.",
+    "body": [
+      { "type": "p", "text": "Waktu pertama kali dengar “design system”, bayangan saya cuma Storybook dan sekumpulan tombol berwarna-warni. Setelah beberapa tahun ikut membangun sistem yang dipakai banyak tim — dari portal perizinan sampai dashboard internal — saya sadar bagian tersulitnya bukan di situ. Komponen gampang dibuat ulang. Yang susah adalah bikin semua orang, lintas tim, sepakat kapan pakai komponen apa, dan kenapa." },
+      { "type": "h3", "text": "Token dulu, komponen belakangan" },
+      { "type": "p", "text": "Di proyek yang skalanya besar, saya belajar untuk mulai dari token, bukan komponen: warna, spacing, ukuran font, radius. Token ini yang jadi kontrak antara desainer dan developer. Kalau token sudah jelas, komponen tinggal disusun dari situ, dan konsistensi datang dengan sendirinya — bukan karena semua orang hafal aturan, tapi karena aturan itu sudah tertanam di variabel yang dipakai." },
+      { "type": "p", "text": "Situs ini sendiri contoh kecilnya: semua warna cuma lima variabel CSS (--paper, --ink, --mute, --line, --accent) yang di-override sekali untuk dark mode. Tidak ada kelas dark: bertebaran di mana-mana. Skalanya kecil, tapi prinsipnya sama dengan sistem yang jauh lebih besar." },
+      { "type": "h3", "text": "Konsistensi itu keputusan, bukan disiplin" },
+      { "type": "p", "text": "Saya pernah masuk ke proyek yang “punya” design system tapi tetap berantakan, karena sistemnya cuma dokumentasi Figma yang tidak pernah dicek ke kode. Developer buru-buru, bikin tombol baru dengan padding sendiri, dan lama-lama drift itu menumpuk. Pelajarannya: design system yang hidup harus lebih gampang dipakai daripada di-skip. Kalau developer harus buka lima halaman dokumentasi buat tahu warna hover yang benar, mereka akan bikin sendiri." },
+      { "type": "p", "text": "Jadi sekarang saya selalu tanya dulu: siapa yang bakal pakai sistem ini, seberapa sering, dan apa yang bikin mereka males ikutin aturan? Design system yang baik itu jalan pintas yang benar, bukan aturan tambahan yang harus diingat." }
+    ]
+  },
+  {
+    "slug": "requirement-gathering",
+    "title": "Requirement gathering: pertanyaan yang sering dilewatkan",
+    "date": "2026-09-11",
+    "excerpt": "Kebanyakan bug fitur bukan karena salah coding, tapi karena requirement yang dianggap jelas padahal cuma jelas di kepala satu orang.",
+    "body": [
+      { "type": "p", "text": "Requirement yang datang ke developer biasanya sudah melewati beberapa tangan: klien ke PM, PM ke tim, lalu jadi tiket. Setiap perpindahan itu ada informasi yang hilang atau berubah bentuk. Bertahun-tahun mengerjakan sistem untuk instansi dan fintech, saya belajar bahwa requirement yang “kelihatannya jelas” justru paling sering bikin masalah, karena tidak ada yang berani tanya ulang." },
+      { "type": "h3", "text": "Tanyakan kondisi yang tidak disebut" },
+      { "type": "p", "text": "Requirement biasanya cuma menjelaskan happy path: user isi form, submit, data tersimpan. Yang jarang disebut adalah apa yang terjadi kalau prosesnya gagal di tengah jalan, siapa yang boleh membatalkan, atau data siapa yang boleh dilihat siapa. Untuk sistem yang menyangkut uang atau data publik, pertanyaan-pertanyaan ini bukan detail teknis — itu inti dari fiturnya. Saya biasa siapkan daftar pertanyaan standar sebelum mulai desain skema: apa yang terjadi kalau gagal, siapa yang punya akses, dan apa yang wajib dicatat untuk audit." },
+      { "type": "h3", "text": "Requirement itu berubah, dan itu wajar" },
+      { "type": "p", "text": "Yang saya hindari sekarang bukan perubahan requirement, tapi anggapan kalau requirement itu final sejak awal. Di proyek portal perizinan misalnya, aturan bisa berubah karena regulasi baru, bukan karena tim berubah pikiran. Solusinya bukan menolak perubahan, tapi memisahkan bagian yang stabil (struktur data inti, kontrak API) dari bagian yang gampang berubah (aturan bisnis, validasi), supaya perubahan tidak berarti bongkar ulang semuanya." },
+      { "type": "p", "text": "Kebiasaan yang paling membantu: sebelum menulis kode, saya tulis ulang requirement dengan bahasa saya sendiri lalu kirim balik ke yang minta. Kalau ada bagian yang saya salah paham, biasanya ketahuan di tahap itu — jauh lebih murah daripada ketahuan setelah fitur dirilis." }
+    ]
+  },
+  {
+    "slug": "ownership",
+    "title": "Sense of ownership: kenapa 'bukan tugas saya' itu mahal",
+    "date": "2026-09-11",
+    "excerpt": "Kualitas terbaik dari developer bukan skill teknisnya, tapi seberapa jauh dia mau peduli pada bagian yang bukan miliknya.",
+    "body": [
+      { "type": "p", "text": "Ada satu kebiasaan yang membedakan developer yang enak diajak kerja lama dari yang tidak: apa yang dia lakukan ketika menemukan bug di modul yang bukan bagiannya. Sebagian orang lapor lalu lanjut kerja sendiri. Sebagian lagi berhenti sebentar, cek root cause-nya, dan kasih tahu tim dengan detail yang cukup buat langsung diperbaiki. Bedanya cuma beberapa menit, tapi dampaknya ke tim jauh lebih besar." },
+      { "type": "h3", "text": "Ownership bukan soal siapa yang salah" },
+      { "type": "p", "text": "Waktu ikut membangun sistem yang dipakai lintas Kementerian dan Lembaga, saya belajar bahwa production incident jarang punya satu penyebab tunggal. Kalau fokusnya cari siapa yang salah, orang jadi defensif dan informasi penting malah disembunyikan. Yang lebih berguna adalah pertanyaan: sistem apa yang perlu diperbaiki supaya ini tidak terulang, siapa pun yang pegang kodenya besok. Ownership itu tentang hasil akhir sistem, bukan tentang siapa yang menulis baris kode yang error." },
+      { "type": "h3", "text": "Tanda ownership yang sebenarnya" },
+      { "type": "p", "text": "Saya pakai satu tolok ukur sederhana: apakah saya akan menulis kode ini dengan cara yang sama kalau saya tahu orang lain yang akan maintain-nya enam bulan lagi, tanpa saya di sana untuk menjelaskan? Kalau jawabannya tidak, biasanya ada jalan pintas yang saya ambil karena buru-buru. Ownership itu bukan soal kerja lembur atau selalu bilang iya, tapi soal menolak meninggalkan sesuatu dalam kondisi lebih buruk dari saat ditemukan." },
+      { "type": "p", "text": "Ini juga alasan kenapa saya suka menulis dokumentasi singkat dan pesan commit yang jelas, meskipun tidak ada yang minta. Bukan karena rajin, tapi karena saya anggap kode yang saya tinggalkan itu tanggung jawab saya, bukan cuma tugas yang selesai begitu pull request di-merge." }
+    ]
+  },
+  {
+    "slug": "attitude",
+    "title": "Attitude yang sebenarnya dicari tim engineering",
+    "date": "2026-09-11",
+    "excerpt": "Skill bisa diajarkan lebih cepat daripada sikap. Ini yang saya perhatikan setelah bekerja di tim kecil startup dan tim besar lintas instansi.",
+    "body": [
+      { "type": "p", "text": "Setelah pindah dari tim kecil di startup ke proyek yang melibatkan banyak instansi dan vendor sekaligus, saya sadar skala kerja berubah drastis, tapi sikap yang dibutuhkan justru sama: jujur soal progres, terbuka soal kesalahan, dan tidak menunggu diminta untuk kasih kabar kalau ada yang meleset." },
+      { "type": "h3", "text": "Jujur lebih penting daripada cepat" },
+      { "type": "p", "text": "Saya pernah lihat estimasi yang terlalu optimis bikin masalah menumpuk sampai mendekati deadline, karena tidak ada yang mau kasih tahu lebih awal kalau progresnya tertinggal. Sikap yang saya coba pegang: kalau sesuatu berisiko molor, saya kabari secepat mungkin, bukan menjelang deadline. Kabar buruk yang datang awal masih bisa dicarikan solusi. Kabar buruk yang datang di hari terakhir cuma jadi kepanikan." },
+      { "type": "h3", "text": "Menerima kritik pada kode, bukan pada diri sendiri" },
+      { "type": "p", "text": "Code review paling sehat itu waktu semua orang di tim bisa bilang “ini bisa lebih baik” tanpa ada yang merasa diserang. Butuh waktu untuk sampai ke titik itu, dan saya sendiri pernah defensif waktu kode saya dikritik habis-habisan di awal karier. Yang mengubah cara pandang saya: kode itu bukan perpanjangan diri saya, dia cuma alat buat menyelesaikan masalah. Begitu saya lepas dari situ, kritik jadi lebih mudah diterima, bahkan dicari." },
+      { "type": "p", "text": "Attitude yang saya hargai dari rekan kerja juga sederhana: bilang “saya belum tahu, biar saya cek dulu” itu jauh lebih baik daripada jawaban asal yang kelihatan yakin. Tim yang nyaman dengan ketidaktahuan justru belajar lebih cepat, karena tidak ada yang sibuk menutupi kekurangan." }
+    ]
+  },
+  {
+    "slug": "ai-workflow",
+    "title": "Workflow AI yang benar-benar mempercepat, bukan sekadar terlihat canggih",
+    "date": "2026-09-11",
+    "excerpt": "AI coding assistant paling efektif kalau posisinya jelas: bukan pengganti keputusan, tapi pelaksana yang cepat dari keputusan yang sudah dipikirkan.",
+    "body": [
+      { "type": "p", "text": "Sejak AI coding assistant jadi bagian sehari-hari, saya lihat dua pola developer: yang pakainya asal ketik lalu tempel hasilnya mentah-mentah, dan yang pakainya seperti pair programmer yang cepat tapi tetap perlu diarahkan. Bedanya bukan di alatnya, tapi di workflow-nya. Alat yang sama bisa mempercepat atau justru menambah utang teknis, tergantung bagaimana dia dipakai." },
+      { "type": "h3", "text": "Kasih konteks sebelum kasih perintah" },
+      { "type": "p", "text": "Kesalahan paling umum adalah langsung minta AI menulis fitur tanpa dia tahu konvensi proyek: penamaan, struktur folder, cara error handling yang sudah dipakai. Hasilnya kode yang jalan tapi “asing” di codebase, dan malah nambah kerjaan review. Sekarang saya selalu pastikan ada dokumen konteks yang bisa dibaca AI di awal — semacam CLAUDE.md atau AGENTS.md yang berisi arsitektur, konvensi, dan batasan proyek. Sekali ditulis, dipakai berkali-kali, dan setiap sesi baru tidak mulai dari nol." },
+      { "type": "h3", "text": "Scope kecil, review ketat" },
+      { "type": "p", "text": "AI paling efektif untuk unit kerja yang jelas batasnya: satu fungsi, satu bug, satu refactor kecil. Begitu scope-nya kabur (“buatkan modul lengkap”), hasilnya makin sering perlu dibongkar ulang, karena AI mengisi kekosongan requirement dengan asumsi sendiri. Saya pecah pekerjaan jadi potongan yang bisa saya review dalam hitungan menit, bukan jam. Review-nya juga tidak saya lewatkan hanya karena “AI yang bikin” — tanggung jawab tetap di saya begitu kode itu di-commit, sama seperti kode yang saya tulis sendiri." },
+      { "type": "h3", "text": "AI cepat di eksekusi, saya tetap yang pegang keputusan" },
+      { "type": "p", "text": "Bagian yang paling saya jaga: keputusan arsitektur, trade-off keamanan, dan hal yang menyangkut data sensitif tetap saya pikirkan sendiri sebelum AI dilibatkan. AI saya pakai untuk mempercepat eksekusi dari keputusan yang sudah saya ambil — menulis boilerplate, menyusun test, menelusuri kode lama, merapikan dokumentasi — bukan untuk menentukan apa yang seharusnya dibangun. Kalau arahnya terbalik, saya cuma jadi orang yang mengetik prompt tanpa benar-benar mengerti sistem yang saya kirim ke production." },
+      { "type": "p", "text": "Efeknya cukup terasa: waktu yang biasanya habis untuk kerja berulang (setup, boilerplate, mencari referensi API) sekarang bisa dipakai untuk hal yang memang butuh saya — scoping requirement, desain skema, dan review yang teliti. Workflow-nya bukan “AI menggantikan developer”, tapi developer yang lebih fokus di bagian yang tidak bisa didelegasikan." }
+    ]
+  }
+]
