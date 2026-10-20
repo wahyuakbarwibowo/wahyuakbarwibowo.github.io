@@ -1,7 +1,5 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
 // Theme is applied before paint by the inline script in <head>;
 // icons swap via Tailwind dark: classes, so only persistence lives here.
 function toggleDarkMode() {
@@ -95,34 +93,3 @@ function toggleProjects() {
     btn.setAttribute('aria-expanded', String(!isHidden));
     document.getElementById('btn-text').textContent = isHidden ? 'Tampilkan 3 proyek lainnya' : 'Sembunyikan proyek lainnya';
 }
-
-// Rotating quotes in the footer
-const QUOTES = [
-    ['Bicara itu murah. Tunjukkan kodenya.', 'Linus Torvalds, pencipta Linux'],
-    ['Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lain.', 'Nabi Muhammad ﷺ (HR. Ahmad & Thabrani)'],
-    ['Satu-satunya cara melakukan pekerjaan hebat adalah mencintai apa yang kamu kerjakan.', 'Steve Jobs, pendiri Apple'],
-    ['Sesungguhnya Allah mencintai seseorang yang apabila bekerja, ia menyempurnakan pekerjaannya.', 'Nabi Muhammad ﷺ (HR. Thabrani)'],
-    ['Jika kamu tidak malu dengan versi pertama produkmu, berarti kamu meluncurkannya terlambat.', 'Reid Hoffman, pendiri LinkedIn'],
-    ['Tidaklah seseorang memakan makanan yang lebih baik daripada hasil kerja tangannya sendiri.', 'Nabi Muhammad ﷺ (HR. Bukhari)'],
-    ['Pelanggan yang paling tidak puas adalah sumber pembelajaran terbesarmu.', 'Bill Gates, pendiri Microsoft'],
-    ['Barangsiapa menempuh jalan untuk mencari ilmu, Allah mudahkan baginya jalan menuju surga.', 'Nabi Muhammad ﷺ (HR. Muslim)'],
-    ['Buat berjalan, buat benar, lalu buat cepat.', 'Kent Beck, pencipta Extreme Programming'],
-    ['Sesungguhnya setiap amal tergantung pada niatnya.', 'Nabi Muhammad ﷺ (HR. Bukhari & Muslim)'],
-    ['Tanpa cinta, kecerdasan itu berbahaya; tanpa kecerdasan, cinta itu tidak cukup.', 'B.J. Habibie, Presiden ke-3 RI'],
-    ['Kesederhanaan adalah prasyarat keandalan.', 'Edsger W. Dijkstra, ilmuwan komputer'],
-];
-const quoteEl = document.getElementById('quote');
-const quoteText = document.getElementById('quote-text');
-const quoteAuthor = document.getElementById('quote-author');
-let quoteIdx = 0;
-setInterval(() => {
-    quoteIdx = (quoteIdx + 1) % QUOTES.length;
-    const swap = () => {
-        quoteText.textContent = `“${QUOTES[quoteIdx][0]}”`;
-        quoteAuthor.textContent = `— ${QUOTES[quoteIdx][1]}`;
-        quoteEl.classList.remove('opacity-0');
-    };
-    if (reduceMotion) return swap();
-    quoteEl.classList.add('opacity-0');
-    setTimeout(swap, 500);
-}, 8000);

@@ -50,6 +50,7 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
     <link
         href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="preload" as="image" href="./assets/img/wahyu.jpg">
     <script is:inline src="https://cdn.tailwindcss.com"></script>
     <script is:inline>
@@ -142,13 +143,14 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
 </head>
 
 <body class="bg-paper font-sans text-ink antialiased selection:bg-accent selection:text-paper">
+    <a href="#main-content" class="skip-link">Langsung ke konten</a>
 
     <!-- Navbar -->
     <nav class="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-sm" role="navigation" aria-label="Menu utama">
         <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
             <a href="#" class="serif text-2xl leading-none">Wahyu Akbar Wibowo</a>
 
-            <div class="hidden items-center gap-7 text-sm md:flex">
+            <div class="hidden items-center gap-6 text-sm lg:flex">
                 <a href="#about" class="text-mute transition hover:text-ink">Tentang</a>
                 <a href="#experience" class="text-mute transition hover:text-ink">Pengalaman</a>
                 <a href="#portfolio" class="text-mute transition hover:text-ink">Proyek</a>
@@ -166,14 +168,14 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
                 </button>
             </div>
 
-            <button class="p-2 md:hidden" id="menu-button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobile-menu">
+            <button class="p-2 lg:hidden" id="menu-button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobile-menu">
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/>
                 </svg>
             </button>
         </div>
 
-        <div class="hidden border-t border-line md:hidden" id="mobile-menu">
+        <div class="hidden border-t border-line lg:hidden" id="mobile-menu">
             <div class="mx-auto flex max-w-5xl flex-col px-6 py-4 text-lg">
                 <a href="#about" class="py-2">Tentang</a>
                 <a href="#experience" class="py-2">Pengalaman</a>
@@ -197,30 +199,33 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
         </div>
     </nav>
 
-    <main class="mx-auto max-w-5xl px-6">
+    <main id="main-content" tabindex="-1" class="mx-auto max-w-5xl px-6">
 
         <!-- Hero -->
-        <header class="fade grid gap-12 py-20 md:grid-cols-[1fr_260px] md:items-end md:py-28">
+        <header class="fade grid gap-10 py-14 md:grid-cols-[1fr_240px] md:items-center md:py-24">
             <div>
-                <p class="text-sm text-mute">Fullstack Developer · Bojonegoro, Jawa Timur</p>
-                <h1 class="serif mt-6 text-5xl leading-[1.02] sm:text-6xl md:text-7xl">
-                    Saya mengembangkan <em>aplikasi web.</em>
+                <p class="text-sm text-mute"><span class="text-accent">Fullstack Developer</span> · Bojonegoro, Jawa Timur</p>
+                <h1 class="serif mt-5 text-5xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+                    Wahyu Akbar<br />Wibowo.
                 </h1>
                 <p class="mt-8 max-w-xl text-lg leading-relaxed text-mute">
-                    Saya mengerjakan backend dan frontend sejak 2020.
-                    Saat ini tersedia untuk proyek freelance dan kontrak remote.
+                    Pengembangan backend, API, dan antarmuka web sejak 2020.
+                    Berpengalaman di proyek perizinan, pembayaran, dan layanan energi.
                 </p>
-                <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
-                    <a href="mailto:wahyuakbar.work@gmail.com" data-mailto class="u">wahyuakbar.work@gmail.com</a>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="#portfolio" class="action-primary">Lihat proyek <span aria-hidden="true">↗</span></a>
+                    <a href="mailto:wahyuakbar.work@gmail.com" data-mailto class="action-secondary">Diskusi proyek</a>
+                </div>
+                <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
                     <a href="https://github.com/wahyuakbarwibowo" target="_blank" rel="noopener noreferrer" class="u">GitHub</a>
                     <a href="https://www.linkedin.com/in/wahyu-akbar-wibowo" target="_blank" rel="noopener noreferrer" class="u">LinkedIn</a>
                     <a href="./assets/pdf/cv.pdf?v=2026-02" download="Wahyu_Akbar_Wibowo_CV.pdf" class="u">Unduh CV</a>
                 </div>
             </div>
-            <figure class="portrait mx-auto w-full max-w-[260px] md:mx-0">
+            <figure class="portrait w-full max-w-[200px] md:max-w-[240px]">
                 <img src="./assets/img/wahyu.jpg" alt="Wahyu Akbar Wibowo" fetchpriority="high" width="640" height="611"
                     class="aspect-[4/5] w-full object-cover object-top">
-                <figcaption class="mt-3 text-xs text-mute">Tersedia untuk proyek baru</figcaption>
+                <figcaption class="mt-3 text-xs text-mute">Open project</figcaption>
             </figure>
         </header>
 
@@ -252,7 +257,7 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
                 <li class="grid gap-2 py-6 first:pt-0 sm:grid-cols-[150px_1fr]">
                     <p class="text-sm text-mute">Jan 2026 — kini</p>
                     <div>
-                        <h3 class="font-medium">Fullstack Developer <span class="text-mute">· Stealth Startup, remote</span></h3>
+                        <h3 class="font-medium">Fullstack Developer <span class="text-mute">· Stealth Startup</span></h3>
                         <p class="mt-2 text-mute">Mengembangkan backend, API, database, dan antarmuka pengguna. Detail produk belum dipublikasikan.</p>
                     </div>
                 </li>
@@ -425,7 +430,7 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
             <div class="min-w-0">
                 <p class="max-w-2xl text-lg leading-relaxed">
                     Layanan meliputi pembuatan website, aplikasi web, backend API, dan pemeliharaan.
-                    Biaya akhir disesuaikan dengan kebutuhan proyek. Konsultasi awal gratis.
+                    Harga berikut adalah biaya awal. Fitur, waktu pengerjaan, dan biaya akhir disepakati sebelum proyek dimulai. Konsultasi awal gratis.
                 </p>
 
                 <div class="mt-10 overflow-x-auto">
@@ -442,36 +447,36 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
                         <tbody class="divide-y divide-line align-top">
                             <tr>
                                 <td class="py-5 pr-4 font-medium text-base">Landing page & company profile</td>
-                                <td class="py-5 pr-4 text-mute">Desain responsif, hingga 5 halaman, SEO on-page, form kontak/WhatsApp, deploy & domain.</td>
+                                <td class="py-5 pr-4 text-mute">Website hingga 5 halaman, desain responsif, SEO dasar, tautan WhatsApp, dan deployment. Materi teks dan foto dari klien.</td>
                                 <td class="py-5 pr-4 text-mute whitespace-nowrap">1–2 minggu</td>
-                                <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 3,5 jt</td>
+                                <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 3 jt</td>
                                 <td class="py-5 pl-4 text-right"><a href="mailto:wahyuakbar.work@gmail.com" data-mailto data-plan="Landing Page" class="u whitespace-nowrap">Diskusikan</a></td>
                             </tr>
                             <tr>
                                 <td class="py-5 pr-4 font-medium text-base">Backend API & integrasi</td>
-                                <td class="py-5 pr-4 text-mute">REST/GraphQL (Go, Node.js, Rust), skema database & migrasi, autentikasi & RBAC, integrasi payment gateway atau API eksternal, dokumentasi OpenAPI.</td>
+                                <td class="py-5 pr-4 text-mute">API untuk satu alur bisnis, database, autentikasi, dokumentasi, dan deployment. Jumlah endpoint serta integrasi ditentukan dalam proposal.</td>
                                 <td class="py-5 pr-4 text-mute whitespace-nowrap">2–4 minggu</td>
-                                <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 8 jt</td>
+                                <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 7,5 jt</td>
                                 <td class="py-5 pl-4 text-right"><a href="mailto:wahyuakbar.work@gmail.com" data-mailto data-plan="Backend API" class="u whitespace-nowrap">Diskusikan</a></td>
                             </tr>
                             <tr>
                                 <td class="py-5 pr-4 font-medium text-base">Aplikasi web fullstack</td>
-                                <td class="py-5 pr-4 text-mute">Backend + frontend (React/Next.js), multi-role & manajemen user, laporan dan export data, notifikasi, staging & deploy, source code dan dokumentasi diserahkan, garansi bug 30 hari.</td>
+                                <td class="py-5 pr-4 text-mute">Aplikasi dengan login, dashboard, dan hingga 3 modul sederhana sesuai kesepakatan. Termasuk source code, dokumentasi, deployment, dan perbaikan bug selama 30 hari.</td>
                                 <td class="py-5 pr-4 text-mute whitespace-nowrap">4–8 minggu</td>
                                 <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 15 jt</td>
                                 <td class="py-5 pl-4 text-right"><a href="mailto:wahyuakbar.work@gmail.com" data-mailto data-plan="Aplikasi Web Fullstack" class="u whitespace-nowrap">Diskusikan</a></td>
                             </tr>
                             <tr>
                                 <td class="py-5 pr-4 font-medium text-base">Maintenance & support</td>
-                                <td class="py-5 pr-4 text-mute">Monitoring & respons insiden, perbaikan bug, patch keamanan, update dependensi & backup, hingga 10 jam pengembangan minor, laporan bulanan. Minimal 3 bulan.</td>
+                                <td class="py-5 pr-4 text-mute">Hingga 5 jam kerja per bulan untuk perbaikan bug, pembaruan dependensi, dan pengecekan backup. Dikerjakan pada jam kerja; fitur baru dihitung terpisah.</td>
                                 <td class="py-5 pr-4 text-mute whitespace-nowrap">Bulanan</td>
-                                <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 2,5 jt<span class="text-sm text-mute">/bln</span></td>
+                                <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 1,5 jt<span class="text-sm text-mute">/bln</span></td>
                                 <td class="py-5 pl-4 text-right"><a href="mailto:wahyuakbar.work@gmail.com" data-mailto data-plan="Maintenance" class="u whitespace-nowrap">Diskusikan</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="mt-4 text-sm text-mute">Harga dalam Rupiah, belum termasuk domain, hosting, dan layanan pihak ketiga. Kebutuhan di luar paket di atas dihitung per jam, Rp 350 rb/jam.</p>
+                <p class="mt-4 text-sm text-mute">Harga belum termasuk domain, hosting, dan layanan pihak ketiga. Pekerjaan tambahan Rp 300 rb/jam, dengan estimasi dan persetujuan sebelum dikerjakan. Estimasi waktu dihitung setelah kebutuhan dan materi lengkap.</p>
             </div>
         </section>
 
@@ -528,7 +533,7 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
             <h2 class="serif mt-6 max-w-3xl text-5xl leading-[1.02] sm:text-6xl">Hubungi saya.</h2>
             <p class="mt-6 max-w-xl text-lg leading-relaxed text-mute">Untuk diskusi proyek atau kerja sama, kirim gambaran kebutuhan Anda melalui email.</p>
             <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <a href="mailto:wahyuakbar.work@gmail.com" data-mailto class="serif u text-3xl sm:text-4xl">wahyuakbar.work@gmail.com</a>
+                <a href="mailto:wahyuakbar.work@gmail.com" data-mailto class="contact-email serif u">wahyuakbar.work@gmail.com</a>
                 <button id="copy-email" data-email="wahyuakbar.work@gmail.com" class="u text-sm text-mute" aria-label="Salin alamat email"><span id="copy-email-text">Salin alamat</span></button>
             </div>
             <div class="mt-8 flex gap-6 text-sm">
@@ -542,11 +547,11 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
     <!-- Footer -->
     <footer class="border-t border-line">
         <div class="mx-auto grid max-w-5xl gap-8 px-6 py-10 text-sm text-mute md:grid-cols-[1fr_auto] md:items-end">
-            <blockquote id="quote" class="max-w-md transition-opacity duration-500">
-                <p id="quote-text" class="serif text-xl leading-snug text-ink">“Bicara itu murah. Tunjukkan kodenya.”</p>
-                <footer id="quote-author" class="mt-2">— Linus Torvalds, pencipta Linux</footer>
-            </blockquote>
-            <p>&copy; <span id="year"></span> Wahyu Akbar Wibowo · Kerjalah mimpimu.</p>
+            <div>
+                <p class="font-medium text-ink">Wahyu Akbar Wibowo</p>
+                <p class="mt-2">Fullstack Developer · Bojonegoro, Indonesia</p>
+            </div>
+            <p>&copy; <span id="year"></span> Wahyu Akbar Wibowo</p>
         </div>
     </footer>
 
