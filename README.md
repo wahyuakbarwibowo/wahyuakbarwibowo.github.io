@@ -1,27 +1,23 @@
 # wahyuakbarwibowo.github.io
 
-Personal portfolio — Wahyu Akbar Wibowo, Senior Fullstack Developer. Profile, experience, projects, services & pricing (IDR), and workflow.
+Personal portfolio — Wahyu Akbar Wibowo, Senior Fullstack Developer. Profile, experience, projects, services & pricing (IDR), and articles.
 
 **Live:** https://wahyuakbarwibowo.github.io
 
-## Stack
-
-Static site: single `index.html` + `assets/js/main.js`. No build step.
-
-- Tailwind CSS via CDN (dark mode via CSS-variable color tokens)
-- Vanilla JS: theme toggle, CV preview modal, project list toggle, email templates, rotating quotes
-- Fonts: Inter & Instrument Serif (Google Fonts)
-
 ## Development
 
-Open `index.html` in a browser, or:
-
 ```bash
-python3 -m http.server 8080
+npm install
+npm run dev
 ```
 
-## Deploy
+## Build
 
-Push to `main` — GitHub Pages serves from the branch root.
+```bash
+npm run build
+npm run preview
+```
+
+Push to `main` to build and deploy to GitHub Pages with GitHub Actions. In repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
 
 > Kerjalah mimpimu.
