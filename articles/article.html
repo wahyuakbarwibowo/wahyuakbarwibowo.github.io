@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Artikel | Wahyu Akbar Wibowo</title>
+    <meta name="description" id="page-description" content="Tulisan Wahyu Akbar Wibowo tentang software engineering.">
+    <meta name="author" content="Wahyu Akbar Wibowo">
+    <meta name="theme-color" content="#f6f4ee" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../assets/img/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        paper: 'var(--paper)',
+                        ink: 'var(--ink)',
+                        mute: 'var(--mute)',
+                        line: 'var(--line)',
+                        accent: 'var(--accent)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --paper: #f6f4ee;
+            --ink: #1b1a17;
+            --mute: #6e6a62;
+            --line: #d9d4c8;
+            --accent: #b4441a;
+        }
+
+        .dark {
+            --paper: #161513;
+            --ink: #ebe7df;
+            --mute: #9a958a;
+            --line: #2d2b26;
+            --accent: #e0703f;
+        }
+
+        html { background: var(--paper); }
+
+        .serif { font-family: 'Instrument Serif', Georgia, serif; }
+
+        .u {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+            text-decoration-color: var(--line);
+            transition: text-decoration-color .2s;
+        }
+
+        .u:hover { text-decoration-color: var(--accent); }
+    </style>
+</head>
+
+<body class="bg-paper font-sans text-ink antialiased selection:bg-accent selection:text-paper">
+
+    <nav class="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-sm" role="navigation" aria-label="Menu utama">
+        <div class="mx-auto flex h-16 max-w-2xl items-center justify-between px-6">
+            <a href="../index.html" class="serif text-2xl leading-none">Wahyu Akbar Wibowo</a>
+            <button onclick="toggleDarkMode()" aria-label="Ganti tema gelap/terang"
+                class="rounded-full border border-line p-2 text-mute transition hover:text-ink">
+                <svg class="block h-4 w-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                </svg>
+                <svg class="hidden h-4 w-4 dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <main class="mx-auto max-w-2xl px-6 py-16 md:py-20">
+        <a href="../index.html#articles" class="u text-sm text-mute">&larr; Semua tulisan</a>
+
+        <article id="article-root" class="mt-8">
+            <p class="text-sm text-mute">Memuat…</p>
+        </article>
+    </main>
+
+    <footer class="mt-10 border-t border-line">
+        <div class="mx-auto max-w-2xl px-6 py-10 text-sm text-mute">
+            <p>&copy; <span id="year"></span> Wahyu Akbar Wibowo</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        (async function renderArticle() {
+            const slug = new URLSearchParams(location.search).get('slug');
+            const root = document.getElementById('article-root');
+            try {
+                const res = await fetch('./data.json');
+                const articles = await res.json();
+                const article = articles.find(a => a.slug === slug);
+                if (!article) {
+                    root.innerHTML = '<p class="text-mute">Artikel tidak ditemukan. <a href="../index.html#articles" class="u">Kembali ke daftar tulisan</a>.</p>';
+                    return;
+                }
+                document.title = article.title + ' | Wahyu Akbar Wibowo';
+                document.getElementById('page-title').textContent = article.title + ' | Wahyu Akbar Wibowo';
+                document.getElementById('page-description').setAttribute('content', article.excerpt);
+
+                const date = new Date(article.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+                const body = article.body.map(block => {
+                    if (block.type === 'h3') return `<h3 class="serif mt-10 text-2xl">${block.text}</h3>`;
+                    return `<p class="mt-5 leading-relaxed">${block.text}</p>`;
+                }).join('');
+
+                root.innerHTML = `
+                    <p class="text-sm text-mute">${date}</p>
+                    <h1 class="serif mt-3 text-4xl leading-[1.05] sm:text-5xl">${article.title}</h1>
+                    <div class="mt-8 text-lg text-mute [&_h3]:text-ink [&_p]:text-ink">${body}</div>
+                `;
+            } catch (e) {
+                root.innerHTML = '<p class="text-mute">Gagal memuat artikel.</p>';
+            }
+        })();
+    </script>
+</body>
+
+</html>

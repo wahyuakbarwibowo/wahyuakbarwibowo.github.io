@@ -4,22 +4,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Astro static portfolio site deployed to GitHub Pages. Site copy is in Indonesian (`lang="id"`).
+Static portfolio site — `index.html` plus one JS file. No build step, no package manager, no framework. Site copy is in Indonesian (`lang="id"`).
 
 Live at: https://wahyuakbarwibowo.github.io
 
 ## Viewing Changes
 
-Run the Astro dev server:
+Open `index.html` directly in browser. No server needed. For quick local serving:
 
 ```bash
-npm install
-npm run dev
+python3 -m http.server 8080
 ```
 
 ## Architecture
 
-Homepage markup lives in `src/pages/index.astro`; behavior lives in `public/assets/js/main.js` (loaded with `defer` at the end of `<body>`). `src/articles.json` supplies both the homepage list and statically generated article pages in `src/pages/articles/[slug].astro`:
+Markup and styling live in `index.html` (~450 lines); behavior lives in `assets/js/main.js` (loaded with `defer` at the end of `<body>`):
 
 - **Tailwind CSS** loaded via CDN (`cdn.tailwindcss.com`) — config inline in `<script>` block at top of `<head>`
 - **Design**: editorial, typography-led — warm paper background, hairline dividers, lists instead of cards, one accent color, no gradients/blobs/scroll effects. Keep it that way; the brief was "terlihat asli, bukan buatan AI"
@@ -40,4 +39,4 @@ Homepage markup lives in `src/pages/index.astro`; behavior lives in `public/asse
 
 ## Deployment
 
-Push to `main` to build and deploy via `.github/workflows/deploy.yml`. Set **Pages → Build and deployment → Source** to **GitHub Actions** in repository settings.
+Push to `main` — GitHub Pages auto-deploys from root of `main` branch.

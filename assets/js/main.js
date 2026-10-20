@@ -96,6 +96,28 @@ function toggleProjects() {
     document.getElementById('btn-text').textContent = isHidden ? 'Tampilkan 3 proyek lainnya' : 'Sembunyikan proyek lainnya';
 }
 
+// Articles list, loaded from articles/data.json
+fetch('./articles/data.json')
+    .then(res => res.json())
+    .then(articles => {
+        const list = document.getElementById('articles-list');
+        list.innerHTML = articles.map(a => {
+            const date = new Date(a.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+            return `<li class="py-6 first:pt-0">
+                <a href="./articles/article.html?slug=${a.slug}" class="group grid gap-2 sm:grid-cols-[150px_1fr]">
+                    <p class="text-sm text-mute">${date}</p>
+                    <div>
+                        <h3 class="font-medium group-hover:text-accent">${a.title}</h3>
+                        <p class="mt-2 text-mute">${a.excerpt}</p>
+                    </div>
+                </a>
+            </li>`;
+        }).join('');
+    })
+    .catch(() => {
+        document.getElementById('articles-list').innerHTML = '<li class="py-6 first:pt-0 text-mute text-sm">Gagal memuat tulisan.</li>';
+    });
+
 // Rotating quotes in the footer
 const QUOTES = [
     ['Bicara itu murah. Tunjukkan kodenya.', 'Linus Torvalds, pencipta Linux'],

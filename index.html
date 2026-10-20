@@ -1,8 +1,3 @@
----
-import articles from '../articles.json';
-
-const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
----
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 
@@ -51,15 +46,15 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
         href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
     <link rel="preload" as="image" href="./assets/img/wahyu.jpg">
-    <script is:inline src="https://cdn.tailwindcss.com"></script>
-    <script is:inline>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
         // Apply saved theme before first paint to avoid flash of wrong theme
         if (localStorage.getItem('theme') === 'dark' ||
             (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         }
     </script>
-    <script is:inline>
+    <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -515,15 +510,7 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
         <section id="articles" class="grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid-cols-[180px_1fr] md:py-20">
             <h2 class="text-sm text-mute">07 — Tulisan</h2>
             <ul id="articles-list" class="divide-y divide-line">
-                {articles.map((article) => <li class="py-6 first:pt-0">
-                    <a href={`/articles/${article.slug}/`} class="group grid gap-2 sm:grid-cols-[150px_1fr]">
-                        <p class="text-sm text-mute">{articleDate(article.date)}</p>
-                        <div>
-                            <h3 class="font-medium group-hover:text-accent">{article.title}</h3>
-                            <p class="mt-2 text-mute">{article.excerpt}</p>
-                        </div>
-                    </a>
-                </li>)}
+                <li class="py-6 first:pt-0 text-mute text-sm">Memuat…</li>
             </ul>
         </section>
 
