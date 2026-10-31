@@ -5,7 +5,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 function toggleDarkMode() {
     const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    if (isDark) drawPlanet();
+    drawSun();
 }
 
 // Mobile menu
@@ -119,34 +119,45 @@ termCopy.addEventListener('click', async () => {
     }
 });
 
-// Hero backdrop: a dithered planet rim with scattered stars, drawn once.
-// ponytail: static render, redraws only on resize; animate it if it ever needs to move.
-const planet = document.getElementById('planet');
-function drawPlanet() {
+// Hero backdrop: a dithered rising sun with a glowing corona, drawn once.
+// ponytail: static render, redraws on resize/theme change; animate it if it ever needs to move.
+const sun = document.getElementById('sun');
+function drawSun() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const w = planet.clientWidth, h = planet.clientHeight;
-    planet.width = w * dpr; planet.height = h * dpr;
-    const ctx = planet.getContext('2d');
+    const w = sun.clientWidth, h = sun.clientHeight;
+    sun.width = w * dpr; sun.height = h * dpr;
+    const ctx = sun.getContext('2d');
     ctx.scale(dpr, dpr);
+    const dark = document.documentElement.classList.contains('dark');
+    const glow = dark ? '255,198,92' : '226,96,18';
     const cell = 3;
-    const R = Math.max(w, h) * 0.9;
-    const cx = w + R * 0.42, cy = h + R * 0.55;
+    // Narrow screens: smaller sun tucked into the corner so it stays behind, not over, the text
+    const narrow = w < 768;
+    const R = narrow ? w * 0.8 : Math.max(w, h) * 0.75;
+    const cx = w + R * (narrow ? 0.45 : 0.3), cy = h + R * (narrow ? 0.6 : 0.45);
     for (let y = 0; y < h; y += cell) {
         for (let x = 0; x < w; x += cell) {
             const d = Math.hypot(x - cx, y - cy) - R;
             const r = Math.random();
             if (d < 0) {
-                // Inside the planet: blue rim fading into magenta dither
-                if (d > -10) ctx.fillStyle = r < 0.85 ? '#7c8cf0' : '#ee4fbf';
-                else if (r < 0.75 * Math.exp(d / 260) + 0.15) ctx.fillStyle = r < 0.5 ? '#c43c9e' : '#5e1f52';
-                else continue;
-            } else if (r < 0.45 * Math.exp(-d / (R * 0.025)) + 0.004) {
-                ctx.fillStyle = r < 0.02 ? '#ffffff' : 'rgba(255,255,255,.75)';
-            } else continue;
+                // Disk: bright yellow limb fading into deep orange core
+                const t = Math.min(1, -d / (R * 0.3));
+                if (r > 0.97) continue;
+                if (d > -12) ctx.fillStyle = r < 0.6 ? '#fff4c8' : '#ffd166';
+                else if (r < 0.9 - t * 0.6) ctx.fillStyle = r < 0.45 - t * 0.3 ? '#ffd166' : '#ff9a2e';
+                else ctx.fillStyle = r < 0.7 ? '#ff8a2a' : '#f26a1b';
+            } else {
+                // Corona: soft glow plus radial rays
+                const ang = Math.atan2(y - cy, x - cx);
+                const ray = Math.pow(Math.max(0, Math.cos(ang * 36)), 10) * Math.exp(-d / (R * 0.2)) * 0.5;
+                const p = 0.7 * Math.exp(-d / (R * 0.035)) + ray;
+                if (r >= p) continue;
+                ctx.fillStyle = `rgba(${glow},${Math.min(1, 0.25 + p)})`;
+            }
             ctx.fillRect(x, y, cell - 1, cell - 1);
         }
     }
 }
-drawPlanet(); // hidden in light mode: zero size, nothing drawn
-let planetTimer;
-window.addEventListener('resize', () => { clearTimeout(planetTimer); planetTimer = setTimeout(drawPlanet, 200); });
+drawSun();
+let sunTimer;
+window.addEventListener('resize', () => { clearTimeout(sunTimer); sunTimer = setTimeout(drawSun, 200); });

@@ -70,7 +70,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
     <title>Wahyu Akbar Wibowo | Fullstack Developer</title>
     <meta name="description" content="Wahyu Akbar Wibowo — Fullstack Developer. Golang, Node.js, Rust, React/Next.js, dan PostgreSQL. Membangun sistem backend dan aplikasi web untuk pemerintahan, fintech, dan enterprise.">
     <meta name="author" content="Wahyu Akbar Wibowo">
-    <meta name="theme-color" content="#f5f5f4" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="./assets/img/favicon-32.png" type="image/png" sizes="32x32">
@@ -112,8 +112,8 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
         <script is:inline src="https://cdn.tailwindcss.com"></script>
     <script is:inline>
         // Apply saved theme before first paint to avoid flash of wrong theme
-        // Dark is the default; light only when chosen explicitly
-        if (localStorage.getItem('theme') !== 'light') {
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         }
     </script>
@@ -163,7 +163,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
 
 <body class="relative font-sans text-ink antialiased selection:bg-accent selection:text-paper">
     <a href="#main-content" class="skip-link">Langsung ke konten</a>
-    <canvas id="planet" class="pointer-events-none absolute inset-x-0 top-0 -z-10 hidden h-[100svh] w-full dark:block" aria-hidden="true"></canvas>
+    <canvas id="sun" class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[100svh] w-full opacity-60 md:opacity-100" aria-hidden="true"></canvas>
 
     <!-- Section rail (desktop only) -->
     <nav class="fixed left-5 top-1/2 z-30 hidden -translate-y-1/2 flex-col border border-line bg-paper/60 backdrop-blur-sm xl:flex" aria-label="Navigasi section">
@@ -241,7 +241,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
                         <button class="term-tab" role="tab" aria-selected="false" data-cmd="open github.com/wahyuakbarwibowo" data-copy="https://github.com/wahyuakbarwibowo">github</button>
                         <button class="term-tab" role="tab" aria-selected="false" data-cmd="open linkedin.com/in/wahyu-akbar-wibowo" data-copy="https://www.linkedin.com/in/wahyu-akbar-wibowo">linkedin</button>
                     </div>
-                    <span class="label hidden sm:block">Konsultasi gratis</span>
+                    <span class="label hidden pb-2 sm:block">Konsultasi gratis</span>
                 </div>
                 <div class="flex items-stretch border border-line bg-panel font-mono text-sm">
                     <span class="flex items-center border-r border-line px-4 text-accent" aria-hidden="true">$</span>
