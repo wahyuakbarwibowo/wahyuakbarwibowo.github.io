@@ -97,7 +97,8 @@ function toggleProjects() {
 }
 
 // Terminal contact box: tabs swap the shown command and what COPY copies
-const termCmd = document.getElementById('term-cmd');
+const termVerb = document.getElementById('term-verb');
+const termArg = document.getElementById('term-arg');
 const termCopy = document.getElementById('term-copy');
 document.querySelectorAll('.term-tab').forEach(tab => {
     tab.addEventListener('click', () => {
@@ -105,7 +106,8 @@ document.querySelectorAll('.term-tab').forEach(tab => {
             t.classList.toggle('is-active', t === tab);
             t.setAttribute('aria-selected', String(t === tab));
         });
-        termCmd.textContent = tab.dataset.cmd;
+        termVerb.textContent = tab.dataset.verb + ' ';
+        termArg.textContent = tab.dataset.arg;
         termCopy.dataset.copy = tab.dataset.copy;
     });
 });

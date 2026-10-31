@@ -237,16 +237,16 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
             <div class="mt-10 w-full max-w-2xl">
                 <div class="flex items-end justify-between gap-4">
                     <div class="flex gap-1" role="tablist" aria-label="Kontak">
-                        <button class="term-tab is-active" role="tab" aria-selected="true" data-cmd="mail wahyuakbar.work@gmail.com" data-copy="wahyuakbar.work@gmail.com">email</button>
-                        <button class="term-tab" role="tab" aria-selected="false" data-cmd="open github.com/wahyuakbarwibowo" data-copy="https://github.com/wahyuakbarwibowo">github</button>
-                        <button class="term-tab" role="tab" aria-selected="false" data-cmd="open linkedin.com/in/wahyu-akbar-wibowo" data-copy="https://www.linkedin.com/in/wahyu-akbar-wibowo">linkedin</button>
+                        <button class="term-tab is-active" role="tab" aria-selected="true" data-verb="mail" data-arg="wahyuakbar.work@gmail.com" data-copy="wahyuakbar.work@gmail.com">email</button>
+                        <button class="term-tab" role="tab" aria-selected="false" data-verb="open" data-arg="github.com/wahyuakbarwibowo" data-copy="https://github.com/wahyuakbarwibowo">github</button>
+                        <button class="term-tab" role="tab" aria-selected="false" data-verb="open" data-arg="linkedin.com/in/wahyu-akbar-wibowo" data-copy="https://www.linkedin.com/in/wahyu-akbar-wibowo">linkedin</button>
                     </div>
                     <span class="label hidden pb-2 sm:block">Konsultasi gratis</span>
                 </div>
                 <div class="flex items-stretch border border-line bg-panel font-mono text-sm">
-                    <span class="flex items-center border-r border-line px-4 text-accent" aria-hidden="true">$</span>
-                    <code id="term-cmd" class="min-w-0 flex-1 truncate px-4 py-4">mail wahyuakbar.work@gmail.com</code>
-                    <button id="term-copy" class="label border-l border-line px-5 transition hover:text-ink" data-copy="wahyuakbar.work@gmail.com">Copy</button>
+                    <span class="flex items-center border-r border-line px-3 text-accent sm:px-4" aria-hidden="true">$</span>
+                    <code class="min-w-0 flex-1 px-3 py-4 text-xs [overflow-wrap:anywhere] sm:px-4 sm:text-sm"><span id="term-verb" class="hidden text-mute sm:inline">mail </span><span id="term-arg">wahyuakbar.work@gmail.com</span></code>
+                    <button id="term-copy" class="label border-l border-line px-3 sm:px-5 transition hover:text-ink" data-copy="wahyuakbar.work@gmail.com">Copy</button>
                 </div>
             </div>
 
