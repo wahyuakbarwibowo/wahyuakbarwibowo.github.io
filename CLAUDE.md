@@ -22,22 +22,23 @@ npm run dev
 Homepage markup lives in `src/pages/index.astro`; behavior lives in `public/assets/js/main.js` (loaded with `defer` at the end of `<body>`). `src/articles.json` supplies both the homepage list and statically generated article pages in `src/pages/articles/[slug].astro`:
 
 - **Tailwind CSS** loaded via CDN (`cdn.tailwindcss.com`) — config inline in `<script>` block at top of `<head>`
-- **Design**: editorial, typography-led — warm paper background, hairline dividers, lists instead of cards, one accent color, no gradients/blobs/scroll effects. Keep it that way; the brief was "terlihat asli, bukan buatan AI"
-- **Color tokens** are CSS variables (`--paper`, `--ink`, `--mute`, `--line`, `--accent`) defined on `:root` and overridden on `.dark`, exposed to Tailwind as `bg-paper`, `text-ink`, `text-mute`, `border-line`, `text-accent` — so no `dark:` prefixes are needed for colors
-- **Shared CSS** in `public/assets/css/site.css`: action buttons, keyboard focus, skip link, contact email sizing, article spacing, and reduced motion.
-- **Page CSS** in `<style>` tag: `.serif`, `.u` (hairline underline link), `.portrait` (grayscale photo, color on hover), `.fade` (single load-in, disabled under `prefers-reduced-motion`)
-- **Sections** (in order, each a `md:grid-cols-[180px_1fr]` row with a numbered label): Navbar → Hero (`<header>`) → About (`#about`) → Experience (`#experience`, CV buttons) → Projects (`#portfolio`) → Skills (`#skills`) → Services & pricing (`#services`, IDR table) → Process (`#process`) → Contact (`#contact`) → Footer (name, location, copyright)
-- **JS** in `assets/js/main.js`: `toggleDarkMode()` (called via inline `onclick`), mobile menu toggle, `mailtoHref()` prefilling a project-request email template on every `a[data-mailto]` (`data-plan` sets the service name), copy-email button, `toggleProjects()` for the hidden `#extra-projects` list, CV preview modal (`openCvModal()`/`closeCvModal()` — iframe src set lazily on first open, Escape closes), footer year
+- **Design**: Swiss / consultancy — cool neutral background, IBM Plex Sans headings (semibold, tight tracking), IBM Plex Mono uppercase labels (`.label`) for section numbers and metadata, hairline dividers, lists/tables instead of cards, one navy accent, no gradients/blobs/scroll effects. Brief: profesional, enterprise, "bukan AI slop"
+- **Color tokens** are CSS variables (`--paper`, `--ink`, `--mute`, `--line`, `--accent`) defined in `site.css` on `:root` and overridden on `.dark`, exposed to Tailwind as `bg-paper`, `text-ink`, `text-mute`, `border-line`, `text-accent` — so no `dark:` prefixes are needed for colors
+- **Shared CSS** in `public/assets/css/site.css`: color tokens, `.label`, `.u` (hairline underline link), action buttons, keyboard focus, skip link, contact email sizing, article spacing, and reduced motion.
+- **Page CSS** in `<style>` tag: `.portrait` (grayscale photo), `.fade` (single load-in, disabled under `prefers-reduced-motion`), mobile price-table stacking
+- **Content data** (projects, services, process steps, nav links) lives as arrays in the `index.astro` frontmatter; edit those, not the markup
+- **Sections** (in order, each a `md:grid-cols-[200px_1fr]` row with a numbered label): Navbar → Hero (`<header>`, with stats bar and client strip) → About (`#about`) → Experience (`#experience`, CV buttons) → Projects (`#portfolio`) → Skills (`#skills`) → Services & pricing (`#services`, IDR table) → Process (`#process`) → Contact (`#contact`) → Footer (name, location, copyright)
+- **JS** in `assets/js/main.js`: `toggleDarkMode()` (called via inline `onclick`), mobile menu toggle, `mailtoHref()` prefilling a project-request email template on every `a[data-mailto]` (`data-plan` sets the service name), copy-email button, `toggleProjects()` for the hidden `[data-extra]` items in `#project-list`, CV preview modal (`openCvModal()`/`closeCvModal()` — iframe src set lazily on first open, Escape closes), footer year
 - **Dark mode** via Tailwind `darkMode: 'class'` — initial theme (localStorage + `prefers-color-scheme` fallback) is applied by an inline script in `<head>` before first paint; toggle button icons are dual SVGs swapped purely via `dark:` classes, no JS icon state
-- **Extra projects** hidden by default in `<div id="extra-projects" class="hidden contents">` — `contents` makes its `<li>` children participate in the parent list when shown
-- **Fonts**: Inter (body), Instrument Serif (headings, prices, `.serif`) — loaded from Google Fonts
+- **Extra projects**: entries in `extraProjects` render as `<li data-extra class="hidden">` in the same list
+- **Fonts**: IBM Plex Sans (body, headings, prices), IBM Plex Mono (`.label`, `font-mono` stack/estimates) — loaded from Google Fonts
 
 ## Assets
 
 - `assets/img/wahyu.jpg` — profile photo (also used in OG/Twitter meta tags)
 - `assets/img/favicon.svg` — "W" monogram favicon; `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png` are rasterized from it with `rsvg-convert`
 - `assets/img/sana.jpg` — unused legacy image
-- `assets/pdf/cv.pdf` — resume; linked with cache-bust query (`?v=YYYY-MM`) and `download="Wahyu_Akbar_Wibowo_CV.pdf"`. When replacing the PDF, bump the `?v=` in all four links (hero button, experience section button, modal header ×2) and `CV_URL` in `main.js`, plus the "Terakhir diperbarui" label
+- `assets/pdf/cv.pdf` — resume; linked with cache-bust query (`?v=YYYY-MM`) and `download="Wahyu_Akbar_Wibowo_CV.pdf"`. When replacing the PDF, bump the `?v=` in the `cv` const in `index.astro` frontmatter and `CV_URL` in `main.js`, plus the "Terakhir diperbarui" label
 
 ## Deployment
 
