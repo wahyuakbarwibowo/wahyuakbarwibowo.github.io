@@ -5,6 +5,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 function toggleDarkMode() {
     const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    if (isDark) drawPlanet();
 }
 
 // Mobile menu
@@ -94,3 +95,58 @@ function toggleProjects() {
     btn.setAttribute('aria-expanded', String(!isHidden));
     document.getElementById('btn-text').textContent = isHidden ? 'Tampilkan 3 proyek lainnya' : 'Sembunyikan proyek lainnya';
 }
+
+// Terminal contact box: tabs swap the shown command and what COPY copies
+const termCmd = document.getElementById('term-cmd');
+const termCopy = document.getElementById('term-copy');
+document.querySelectorAll('.term-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.term-tab').forEach(t => {
+            t.classList.toggle('is-active', t === tab);
+            t.setAttribute('aria-selected', String(t === tab));
+        });
+        termCmd.textContent = tab.dataset.cmd;
+        termCopy.dataset.copy = tab.dataset.copy;
+    });
+});
+termCopy.addEventListener('click', async () => {
+    try {
+        await navigator.clipboard.writeText(termCopy.dataset.copy);
+        termCopy.textContent = 'Copied';
+        setTimeout(() => { termCopy.textContent = 'Copy'; }, 2000);
+    } catch {
+        window.location.href = mailtoHref();
+    }
+});
+
+// Hero backdrop: a dithered planet rim with scattered stars, drawn once.
+// ponytail: static render, redraws only on resize; animate it if it ever needs to move.
+const planet = document.getElementById('planet');
+function drawPlanet() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = planet.clientWidth, h = planet.clientHeight;
+    planet.width = w * dpr; planet.height = h * dpr;
+    const ctx = planet.getContext('2d');
+    ctx.scale(dpr, dpr);
+    const cell = 3;
+    const R = Math.max(w, h) * 0.9;
+    const cx = w + R * 0.42, cy = h + R * 0.55;
+    for (let y = 0; y < h; y += cell) {
+        for (let x = 0; x < w; x += cell) {
+            const d = Math.hypot(x - cx, y - cy) - R;
+            const r = Math.random();
+            if (d < 0) {
+                // Inside the planet: blue rim fading into magenta dither
+                if (d > -10) ctx.fillStyle = r < 0.85 ? '#7c8cf0' : '#ee4fbf';
+                else if (r < 0.75 * Math.exp(d / 260) + 0.15) ctx.fillStyle = r < 0.5 ? '#c43c9e' : '#5e1f52';
+                else continue;
+            } else if (r < 0.45 * Math.exp(-d / (R * 0.025)) + 0.004) {
+                ctx.fillStyle = r < 0.02 ? '#ffffff' : 'rgba(255,255,255,.75)';
+            } else continue;
+            ctx.fillRect(x, y, cell - 1, cell - 1);
+        }
+    }
+}
+drawPlanet(); // hidden in light mode: zero size, nothing drawn
+let planetTimer;
+window.addEventListener('resize', () => { clearTimeout(planetTimer); planetTimer = setTimeout(drawPlanet, 200); });
