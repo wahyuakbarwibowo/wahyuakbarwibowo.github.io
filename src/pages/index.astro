@@ -2,6 +2,63 @@
 import articles from '../articles.json';
 
 const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const projects = [
+    { title: 'OSS RBA — Online Single Submission', client: 'BKPM', sector: 'Pemerintahan', period: '2022 — 2025', url: 'https://oss.go.id',
+      scope: 'Portal perizinan berusaha nasional. API integrasi Kementerian/Lembaga/Daerah, produk hukum digital, common service, dan monitoring service.',
+      stack: 'Node.js · Rust · PostgreSQL · MongoDB · RabbitMQ · Redis' },
+    { title: 'Finpay Billing Core', client: 'Finpay', sector: 'Fintech', url: 'https://hub.finpay.id/docs/finpay-billing/billing-payment',
+      scope: 'API switching untuk manajemen channel dan transaksi pembayaran tagihan yang diteruskan ke biller.',
+      stack: 'Go · MongoDB · Redis' },
+    { title: 'MyPertamina Subsidi Tepat LPG', client: 'Pertamina', sector: 'Energi', url: 'https://subsiditepatlpg.mypertamina.id/merchant',
+      scope: 'Enkripsi database, hashing, dan optimasi performa backend untuk transaksi subsidi merchant skala nasional.',
+      stack: 'Go · Node.js · Kafka · MySQL' },
+    { title: 'Tepi Bojonegoro Marketplace', client: 'Tepi Bojonegoro', sector: 'E-commerce', url: 'https://tepibojonegoro.com',
+      scope: 'Platform e-commerce fullstack dengan integrasi payment gateway dan manajemen produk.',
+      stack: 'Go (Echo) · Express · Next.js · PostgreSQL · Redis' },
+    { title: 'Ase Logistik CMS', client: 'Antar Samudera Express', sector: 'Logistik', url: 'https://aselogistik.id/',
+      scope: 'Fitur CMS untuk operasional pengiriman beserta peningkatan performanya.',
+      stack: 'Laravel · MySQL' },
+    { title: 'Progress+', client: 'Cipta Progresa Usaha', sector: 'Konstruksi', url: 'https://ciptaprogresa.com/progress',
+      scope: 'Fitur CMS untuk monitoring progres proyek konstruksi.',
+      stack: 'Laravel · MySQL' },
+];
+
+const extraProjects = [
+    { title: 'Pertamina Informs', client: 'Pertamina', sector: 'Mobile backend', url: 'https://play.google.com/store/apps/details?id=com.pertamina.informs&hl=in&gl=US',
+      scope: 'Wrapping API dashboard untuk aplikasi mobile Pertamina dan layanan notifikasi.',
+      stack: 'Node.js · Kafka · MySQL · Firebase' },
+    { title: 'Pijar Sekolah', client: 'Telkom Indonesia', sector: 'Edutech', url: 'https://pijarsekolah.id',
+      scope: 'API manajemen user dashboard dan layanan pelaporan data pendidikan.',
+      stack: 'Node.js · React' },
+    { title: 'Yakes Telkom CMS', client: 'Yakes Telkom', sector: 'Kesehatan',
+      scope: 'CMS kustom berbasis CodeIgniter dengan multi-user dan role-based access control.',
+      stack: 'PHP (CodeIgniter) · MySQL' },
+];
+
+const services = [
+    { name: 'Landing page & company profile', plan: 'Landing Page', time: '1–2 minggu', price: 'Rp 3 jt',
+      scope: 'Website hingga 5 halaman, desain responsif, SEO dasar, tautan WhatsApp, dan deployment. Materi teks dan foto dari klien.' },
+    { name: 'Backend API & integrasi', plan: 'Backend API', time: '2–4 minggu', price: 'Rp 7,5 jt',
+      scope: 'API untuk satu alur bisnis, database, autentikasi, dokumentasi, dan deployment. Jumlah endpoint serta integrasi ditentukan dalam proposal.' },
+    { name: 'Aplikasi web fullstack', plan: 'Aplikasi Web Fullstack', time: '4–8 minggu', price: 'Rp 15 jt',
+      scope: 'Aplikasi dengan login, dashboard, dan hingga 3 modul sederhana sesuai kesepakatan. Termasuk source code, dokumentasi, deployment, dan perbaikan bug selama 30 hari.' },
+    { name: 'Maintenance & support', plan: 'Maintenance', time: 'Bulanan', price: 'Rp 1,5 jt', unit: '/bln',
+      scope: 'Hingga 5 jam kerja per bulan untuk perbaikan bug, pembaruan dependensi, dan pengecekan backup. Dikerjakan pada jam kerja; fitur baru dihitung terpisah.' },
+];
+
+const steps = [
+    ['Diskusi kebutuhan', 'Membahas kebutuhan proyek, perkiraan biaya, dan waktu pengerjaan.'],
+    ['Proposal & kesepakatan', 'Ruang lingkup tertulis, milestone, dan jadwal pembayaran: DP 50%, pelunasan saat serah terima.'],
+    ['Desain & arsitektur', 'Menyepakati skema database, desain API, dan rancangan antarmuka sebelum pengembangan.'],
+    ['Pengembangan', 'Pengerjaan bertahap dengan demo mingguan dan akses ke staging.'],
+    ['Pengujian & UAT', 'Pengujian fungsional dan keamanan, lalu User Acceptance Test bersama Anda dengan sesi revisi.'],
+    ['Go-live & serah terima', 'Deploy ke production, dokumentasi, source code, dan sesi handover. Garansi bug 30 hari setelah rilis.'],
+];
+
+const nav = [['#about', 'Tentang'], ['#experience', 'Pengalaman'], ['#portfolio', 'Proyek'], ['#services', 'Layanan'], ['#articles', 'Tulisan']];
+const cv = './assets/pdf/cv.pdf?v=2026-02';
+const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid-cols-[200px_1fr] md:py-20';
 ---
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
@@ -10,10 +67,10 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wahyu Akbar Wibowo | Fullstack Developer</title>
-    <meta name="description" content="Wahyu Akbar Wibowo — Fullstack Developer. Golang, Node.js, Rust, React/Next.js, dan PostgreSQL. Membangun aplikasi web end-to-end untuk pemerintahan, fintech, dan enterprise.">
+    <meta name="description" content="Wahyu Akbar Wibowo — Fullstack Developer. Golang, Node.js, Rust, React/Next.js, dan PostgreSQL. Membangun sistem backend dan aplikasi web untuk pemerintahan, fintech, dan enterprise.">
     <meta name="author" content="Wahyu Akbar Wibowo">
-    <meta name="theme-color" content="#f6f4ee" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f7f8fa" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c0f13" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="./assets/img/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
@@ -23,7 +80,7 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
         "@type": "Person",
         "name": "Wahyu Akbar Wibowo",
         "jobTitle": "Fullstack Developer",
-        "description": "Fullstack Developer — Golang, Node.js, Rust, React/Next.js, PostgreSQL. Membangun aplikasi web end-to-end untuk pemerintahan, fintech, dan enterprise.",
+        "description": "Fullstack Developer — Golang, Node.js, Rust, React/Next.js, PostgreSQL. Membangun sistem backend dan aplikasi web untuk pemerintahan, fintech, dan enterprise.",
         "url": "https://wahyuakbarwibowo.github.io",
         "image": "https://wahyuakbarwibowo.github.io/assets/img/wahyu.jpg",
         "email": "mailto:wahyuakbar.work@gmail.com",
@@ -38,17 +95,17 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wahyuakbarwibowo.github.io">
     <meta property="og:title" content="Wahyu Akbar Wibowo | Fullstack Developer">
-    <meta property="og:description" content="Fullstack Developer. Golang, Node.js, Rust, React/Next.js, PostgreSQL. Aplikasi web end-to-end untuk pemerintahan, fintech, dan enterprise.">
+    <meta property="og:description" content="Fullstack Developer. Golang, Node.js, Rust, React/Next.js, PostgreSQL. Sistem backend dan aplikasi web untuk pemerintahan, fintech, dan enterprise.">
     <meta property="og:image" content="https://wahyuakbarwibowo.github.io/assets/img/wahyu.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Wahyu Akbar Wibowo | Fullstack Developer">
-    <meta name="twitter:description" content="Fullstack Developer — Go, Node.js, React, PostgreSQL.">
+    <meta name="twitter:description" content="Fullstack Developer — Go, Node.js, Rust, PostgreSQL.">
     <meta name="twitter:image" content="https://wahyuakbarwibowo.github.io/assets/img/wahyu.jpg">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="preload" as="image" href="./assets/img/wahyu.jpg">
@@ -66,8 +123,8 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+                        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+                        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
                     },
                     // Tokens flip between light/dark via CSS variables, so no dark: prefixes needed
                     colors: {
@@ -82,57 +139,17 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
         }
     </script>
     <style>
-        :root {
-            --paper: #f6f4ee;
-            --ink: #1b1a17;
-            --mute: #6e6a62;
-            --line: #d9d4c8;
-            --accent: #b4441a;
-        }
-
-        .dark {
-            --paper: #161513;
-            --ink: #ebe7df;
-            --mute: #9a958a;
-            --line: #2d2b26;
-            --accent: #e0703f;
-        }
-
-        html { background: var(--paper); }
-
-        .serif { font-family: 'Instrument Serif', Georgia, serif; }
-
-        /* Hairline underline that warms up on hover — used for inline links */
-        .u {
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 4px;
-            text-decoration-color: var(--line);
-            transition: text-decoration-color .2s;
-        }
-
-        .u:hover { text-decoration-color: var(--accent); }
-
-        .portrait img {
-            filter: grayscale(1) contrast(1.05);
-            transition: filter .5s ease;
-        }
-
-        .portrait:hover img { filter: none; }
+        .portrait img { filter: grayscale(1) contrast(1.05); }
 
         /* Single, quiet entrance on load */
-        .fade { animation: fade .8s ease both; }
+        .fade { animation: fade .6s ease both; }
 
         @keyframes fade {
-            from { opacity: 0; transform: translateY(8px); }
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: none; }
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            .fade { animation: none; }
-        }
-
-        /* Price table stacks into cards on narrow screens */
+        /* Price table stacks into rows on narrow screens */
         @media (max-width: 639px) {
             .price thead { display: none; }
             .price tbody, .price tr, .price td { display: block; text-align: left; padding: 0; }
@@ -147,18 +164,13 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
 
     <!-- Navbar -->
     <nav class="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-sm" role="navigation" aria-label="Menu utama">
-        <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-            <a href="#" class="serif text-2xl leading-none">Wahyu Akbar Wibowo</a>
+        <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+            <a href="#" class="text-sm font-semibold uppercase tracking-[.12em]">Wahyu Akbar Wibowo</a>
 
-            <div class="hidden items-center gap-6 text-sm lg:flex">
-                <a href="#about" class="text-mute transition hover:text-ink">Tentang</a>
-                <a href="#experience" class="text-mute transition hover:text-ink">Pengalaman</a>
-                <a href="#portfolio" class="text-mute transition hover:text-ink">Proyek</a>
-                <a href="#services" class="text-mute transition hover:text-ink">Layanan</a>
-                <a href="#articles" class="text-mute transition hover:text-ink">Tulisan</a>
-                <a href="#contact" class="text-mute transition hover:text-ink">Kontak</a>
+            <div class="hidden items-center gap-7 text-sm lg:flex">
+                {nav.map(([href, label]) => <a href={href} class="text-mute transition hover:text-ink">{label}</a>)}
                 <button onclick="toggleDarkMode()" id="theme-toggle" aria-label="Ganti tema gelap/terang"
-                    class="rounded-full border border-line p-2 text-mute transition hover:text-ink">
+                    class="border border-line p-2 text-mute transition hover:text-ink">
                     <svg class="block h-4 w-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
                     </svg>
@@ -166,6 +178,7 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
                     </svg>
                 </button>
+                <a href="#contact" class="action-primary !min-h-[40px] !py-2">Hubungi</a>
             </div>
 
             <button class="p-2 lg:hidden" id="menu-button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobile-menu">
@@ -176,17 +189,13 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
         </div>
 
         <div class="hidden border-t border-line lg:hidden" id="mobile-menu">
-            <div class="mx-auto flex max-w-5xl flex-col px-6 py-4 text-lg">
-                <a href="#about" class="py-2">Tentang</a>
-                <a href="#experience" class="py-2">Pengalaman</a>
-                <a href="#portfolio" class="py-2">Proyek</a>
-                <a href="#services" class="py-2">Layanan</a>
-                <a href="#articles" class="py-2">Tulisan</a>
+            <div class="mx-auto flex max-w-6xl flex-col px-6 py-4 text-lg">
+                {nav.map(([href, label]) => <a href={href} class="py-2">{label}</a>)}
                 <a href="#contact" class="py-2">Kontak</a>
                 <div class="mt-3 flex items-center justify-between border-t border-line pt-4 text-sm text-mute">
                     <span>Ganti tema</span>
                     <button onclick="toggleDarkMode()" id="theme-toggle-mobile" aria-label="Ganti tema gelap/terang"
-                        class="rounded-full border border-line p-2">
+                        class="border border-line p-2">
                         <svg class="block h-4 w-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
                         </svg>
@@ -199,72 +208,78 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
         </div>
     </nav>
 
-    <main id="main-content" tabindex="-1" class="mx-auto max-w-5xl px-6">
+    <main id="main-content" tabindex="-1" class="mx-auto max-w-6xl px-6">
 
         <!-- Hero -->
-        <header class="fade grid gap-10 py-14 md:grid-cols-[1fr_240px] md:items-center md:py-24">
-            <div>
-                <p class="text-sm text-mute"><span class="text-accent">Fullstack Developer</span> · Bojonegoro, Jawa Timur</p>
-                <h1 class="serif mt-5 text-5xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
-                    Wahyu Akbar<br />Wibowo.
-                </h1>
-                <p class="mt-8 max-w-xl text-lg leading-relaxed text-mute">
-                    Pengembangan backend, API, dan antarmuka web sejak 2020.
-                    Berpengalaman di proyek perizinan, pembayaran, dan layanan energi.
-                </p>
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="#portfolio" class="action-primary">Lihat proyek <span aria-hidden="true">↗</span></a>
-                    <a href="mailto:wahyuakbar.work@gmail.com" data-mailto class="action-secondary">Diskusi proyek</a>
+        <header class="fade pt-14 md:pt-24">
+            <div class="grid gap-10 md:grid-cols-[1fr_220px] md:items-end">
+                <div>
+                    <p class="label">Fullstack Developer · Bojonegoro, Indonesia</p>
+                    <h1 class="mt-6 max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
+                        Sistem backend dan aplikasi web untuk pemerintahan, fintech, dan energi.
+                    </h1>
+                    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-mute">
+                        Sejak 2020 merancang API, database, dan integrasi layanan untuk platform pemerintahan dan korporasi —
+                        termasuk OSS RBA (BKPM), Finpay Billing, dan MyPertamina Subsidi Tepat LPG.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="mailto:wahyuakbar.work@gmail.com" data-mailto class="action-primary">Diskusi proyek <span aria-hidden="true">→</span></a>
+                        <a href="#portfolio" class="action-secondary">Lihat proyek</a>
+                    </div>
                 </div>
-                <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
-                    <a href="https://github.com/wahyuakbarwibowo" target="_blank" rel="noopener noreferrer" class="u">GitHub</a>
-                    <a href="https://www.linkedin.com/in/wahyu-akbar-wibowo" target="_blank" rel="noopener noreferrer" class="u">LinkedIn</a>
-                    <a href="./assets/pdf/cv.pdf?v=2026-02" download="Wahyu_Akbar_Wibowo_CV.pdf" class="u">Unduh CV</a>
-                </div>
+                <figure class="portrait w-full max-w-[180px] md:max-w-[220px]">
+                    <img src="./assets/img/wahyu.jpg" alt="Wahyu Akbar Wibowo" fetchpriority="high" width="640" height="611"
+                        class="aspect-[4/5] w-full object-cover object-top">
+                </figure>
             </div>
-            <figure class="portrait w-full max-w-[200px] md:max-w-[240px]">
-                <img src="./assets/img/wahyu.jpg" alt="Wahyu Akbar Wibowo" fetchpriority="high" width="640" height="611"
-                    class="aspect-[4/5] w-full object-cover object-top">
-                <figcaption class="mt-3 text-xs text-mute">Open project</figcaption>
-            </figure>
+
+            <dl class="mt-14 grid grid-cols-2 border-y border-line md:mt-20 md:grid-cols-4">
+                <div class="border-line py-6 pr-4 md:border-r"><dt class="label">Pengalaman</dt><dd class="mt-2 text-3xl font-semibold tracking-tight">5+ tahun</dd></div>
+                <div class="border-line py-6 pl-4 md:border-r md:px-6"><dt class="label">Proyek dirilis</dt><dd class="mt-2 text-3xl font-semibold tracking-tight">10+</dd></div>
+                <div class="border-t border-line py-6 pr-4 md:border-r md:border-t-0 md:px-6"><dt class="label">Sektor</dt><dd class="mt-2 text-3xl font-semibold tracking-tight">Gov · Fin · Energi</dd></div>
+                <div class="border-t border-line py-6 pl-4 md:border-t-0 md:px-6"><dt class="label">Pendidikan</dt><dd class="mt-2 text-3xl font-semibold tracking-tight">S1, IPK 3.8</dd></div>
+            </dl>
+
+            <p class="label py-6 leading-relaxed">
+                Pernah terlibat di proyek untuk&nbsp;&nbsp;<span class="text-ink">BKPM · Finpay · Pertamina · Telkom Indonesia · Antar Samudera Express</span>
+            </p>
         </header>
 
         <!-- About -->
-        <section id="about" class="grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid-cols-[180px_1fr] md:py-20">
-            <h2 class="text-sm text-mute">01 — Tentang</h2>
-            <div class="max-w-2xl space-y-5 text-lg leading-relaxed">
+        <section id="about" class={sectionClass}>
+            <h2 class="label">01 / Tentang</h2>
+            <div class="max-w-3xl space-y-5 text-lg leading-relaxed">
                 <p>
-                    Fokus saya di backend: database, API, dan integrasi layanan.
-                    Saya juga mengembangkan antarmuka dengan React.
+                    Fokus saya di backend: desain database, API, keamanan data, dan integrasi antar layanan.
+                    Untuk sisi antarmuka saya mengerjakan React dan Next.js.
                 </p>
-                <p>
-                    Sejak 2020 saya ikut membangun OSS RBA (portal perizinan berusaha nasional), core billing Finpay,
-                    platform Subsidi Tepat LPG MyPertamina, serta CMS untuk logistik dan konstruksi.
+                <p class="text-mute">
+                    Terbiasa bekerja di sistem yang melibatkan banyak pihak — Kementerian, Lembaga, Daerah, biller, dan vendor —
+                    di mana kontrak API yang jelas, audit trail, dan dokumentasi sama pentingnya dengan kode.
                 </p>
-                <dl class="grid grid-cols-2 gap-6 border-t border-line pt-6 text-base sm:grid-cols-4">
-                    <div><dt class="text-sm text-mute">Pengalaman</dt><dd class="serif mt-1 text-3xl">5+ tahun</dd></div>
-                    <div><dt class="text-sm text-mute">Proyek dirilis</dt><dd class="serif mt-1 text-3xl">10+</dd></div>
-                    <div><dt class="text-sm text-mute">Bahasa</dt><dd class="serif mt-1 text-3xl">6</dd></div>
-                    <div><dt class="text-sm text-mute">Pendidikan</dt><dd class="serif mt-1 text-3xl">S1, IPK 3.8</dd></div>
-                </dl>
+                <div class="flex flex-wrap gap-x-6 gap-y-3 pt-2 text-sm">
+                    <a href="https://github.com/wahyuakbarwibowo" target="_blank" rel="noopener noreferrer" class="u">GitHub</a>
+                    <a href="https://www.linkedin.com/in/wahyu-akbar-wibowo" target="_blank" rel="noopener noreferrer" class="u">LinkedIn</a>
+                    <a href={cv} download="Wahyu_Akbar_Wibowo_CV.pdf" class="u">Unduh CV</a>
+                </div>
             </div>
         </section>
 
         <!-- Experience -->
-        <section id="experience" class="grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid-cols-[180px_1fr] md:py-20">
-            <h2 class="text-sm text-mute">02 — Pengalaman</h2>
-            <ol class="divide-y divide-line">
-                <li class="grid gap-2 py-6 first:pt-0 sm:grid-cols-[150px_1fr]">
-                    <p class="text-sm text-mute">Jan 2026 — kini</p>
+        <section id="experience" class={sectionClass}>
+            <h2 class="label">02 / Pengalaman</h2>
+            <ol class="divide-y divide-line border-y border-line">
+                <li class="grid gap-2 py-6 sm:grid-cols-[170px_1fr]">
+                    <p class="label pt-1">Jan 2026 — kini</p>
                     <div>
-                        <h3 class="font-medium">Fullstack Developer <span class="text-mute">· Stealth Startup</span></h3>
+                        <h3 class="font-semibold">Fullstack Developer <span class="font-normal text-mute">· Stealth Startup</span></h3>
                         <p class="mt-2 text-mute">Mengembangkan backend, API, database, dan antarmuka pengguna. Detail produk belum dipublikasikan.</p>
                     </div>
                 </li>
-                <li class="grid gap-2 py-6 sm:grid-cols-[150px_1fr]">
-                    <p class="text-sm text-mute">Mei — Des 2025</p>
+                <li class="grid gap-2 py-6 sm:grid-cols-[170px_1fr]">
+                    <p class="label pt-1">Mei — Des 2025</p>
                     <div>
-                        <h3 class="font-medium">Back End Developer <span class="text-mute">· PT Padepokan Tujuh Sembilan</span></h3>
+                        <h3 class="font-semibold">Back End Developer <span class="font-normal text-mute">· PT Padepokan Tujuh Sembilan</span></h3>
                         <ul class="mt-2 list-disc space-y-1 pl-5 text-mute marker:text-line">
                             <li>Mengembangkan RESTful API OSS RBA dengan Node.js/Express dan Rust (Actix Web).</li>
                             <li>Merancang modul, struktur data, dan query PostgreSQL untuk integrasi Kementerian, Lembaga, dan Daerah.</li>
@@ -272,10 +287,10 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
                         </ul>
                     </div>
                 </li>
-                <li class="grid gap-2 py-6 sm:grid-cols-[150px_1fr]">
-                    <p class="text-sm text-mute">Agt 2020 — Apr 2025</p>
+                <li class="grid gap-2 py-6 sm:grid-cols-[170px_1fr]">
+                    <p class="label pt-1">Agt 2020 — Apr 2025</p>
                     <div>
-                        <h3 class="font-medium">Full Stack Developer <span class="text-mute">· PT Skyrain Studio Indonesia</span></h3>
+                        <h3 class="font-semibold">Full Stack Developer <span class="font-normal text-mute">· PT Skyrain Studio Indonesia</span></h3>
                         <ul class="mt-2 list-disc space-y-1 pl-5 text-mute marker:text-line">
                             <li>Membangun dan memelihara aplikasi web untuk klien fintech (Finpay), energi (Pertamina), edutech, dan e-commerce.</li>
                             <li>Mengimplementasikan keamanan API: enkripsi data, hashing, dan kontrol akses berbasis peran.</li>
@@ -283,196 +298,107 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
                         </ul>
                     </div>
                 </li>
-                <li class="grid gap-2 py-6 sm:grid-cols-[150px_1fr]">
-                    <p class="text-sm text-mute">2016 — 2020</p>
+                <li class="grid gap-2 py-6 sm:grid-cols-[170px_1fr]">
+                    <p class="label pt-1">2016 — 2020</p>
                     <div>
-                        <h3 class="font-medium">S1 Teknik Informatika <span class="text-mute">· Universitas Trunojoyo Madura</span></h3>
+                        <h3 class="font-semibold">S1 Teknik Informatika <span class="font-normal text-mute">· Universitas Trunojoyo Madura</span></h3>
                         <p class="mt-2 text-mute">IPK 3.8.</p>
                     </div>
                 </li>
-                <li class="flex flex-wrap items-center gap-x-6 gap-y-2 pt-6 text-sm">
-                    <button onclick="openCvModal()" class="u">Lihat CV lengkap</button>
-                    <a href="./assets/pdf/cv.pdf?v=2026-02" download="Wahyu_Akbar_Wibowo_CV.pdf" class="u">Unduh PDF</a>
-                    <span class="text-mute">Diperbarui Februari 2026</span>
-                </li>
             </ol>
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm md:col-start-2">
+                <button onclick="openCvModal()" class="u">Lihat CV lengkap</button>
+                <a href={cv} download="Wahyu_Akbar_Wibowo_CV.pdf" class="u">Unduh PDF</a>
+                <span class="label">Diperbarui Februari 2026</span>
+            </div>
         </section>
 
         <!-- Projects -->
-        <section id="portfolio" class="grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid-cols-[180px_1fr] md:py-20">
-            <h2 class="text-sm text-mute">03 — Proyek pilihan</h2>
+        <section id="portfolio" class={sectionClass}>
+            <h2 class="label">03 / Proyek pilihan</h2>
             <div>
-                <ul class="divide-y divide-line">
-                    <li class="py-6 first:pt-0">
-                        <a href="https://oss.go.id" target="_blank" rel="noopener noreferrer" class="group grid gap-2 sm:grid-cols-[150px_1fr]">
-                            <p class="text-sm text-mute">2022 · 2025</p>
+                <ul id="project-list" class="divide-y divide-line border-y border-line">
+                    {[...projects, ...extraProjects].map((p, i) => {
+                        const cls = 'group grid gap-x-6 gap-y-3 py-7 sm:grid-cols-[48px_1fr]';
+                        const body = <>
+                            <p class="label pt-1">{String(i + 1).padStart(2, '0')}</p>
                             <div>
-                                <h3 class="font-medium group-hover:text-accent">OSS RBA — Online Single Submission <span class="text-mute">↗</span></h3>
-                                <p class="mt-2 text-mute">Portal perizinan berusaha nasional (BKPM). API integrasi Kementerian/Lembaga/Daerah, produk hukum digital, common service, dan monitoring service.</p>
-                                <p class="mt-2 text-sm text-mute">Node.js · Rust · PostgreSQL · MongoDB · RabbitMQ · Redis</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="py-6">
-                        <a href="https://hub.finpay.id/docs/finpay-billing/billing-payment" target="_blank" rel="noopener noreferrer" class="group grid gap-2 sm:grid-cols-[150px_1fr]">
-                            <p class="text-sm text-mute">Fintech</p>
-                            <div>
-                                <h3 class="font-medium group-hover:text-accent">Finpay Billing Core <span class="text-mute">↗</span></h3>
-                                <p class="mt-2 text-mute">API switching untuk manajemen channel dan transaksi pembayaran tagihan yang diteruskan ke biller.</p>
-                                <p class="mt-2 text-sm text-mute">Go · MongoDB · Redis</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="py-6">
-                        <a href="https://subsiditepatlpg.mypertamina.id/merchant" target="_blank" rel="noopener noreferrer" class="group grid gap-2 sm:grid-cols-[150px_1fr]">
-                            <p class="text-sm text-mute">Energi</p>
-                            <div>
-                                <h3 class="font-medium group-hover:text-accent">MyPertamina Subsidi Tepat LPG <span class="text-mute">↗</span></h3>
-                                <p class="mt-2 text-mute">Enkripsi database, hashing, dan optimasi performa backend untuk transaksi subsidi merchant skala nasional.</p>
-                                <p class="mt-2 text-sm text-mute">Go · Node.js · Kafka · MySQL</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="py-6">
-                        <a href="https://tepibojonegoro.com" target="_blank" rel="noopener noreferrer" class="group grid gap-2 sm:grid-cols-[150px_1fr]">
-                            <p class="text-sm text-mute">E-commerce</p>
-                            <div>
-                                <h3 class="font-medium group-hover:text-accent">Tepi Bojonegoro Marketplace <span class="text-mute">↗</span></h3>
-                                <p class="mt-2 text-mute">Platform e-commerce fullstack dengan integrasi payment gateway dan manajemen produk.</p>
-                                <p class="mt-2 text-sm text-mute">Go (Echo) · Express · Next.js · PostgreSQL · Redis</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="py-6">
-                        <a href="https://aselogistik.id/" target="_blank" rel="noopener noreferrer" class="group grid gap-2 sm:grid-cols-[150px_1fr]">
-                            <p class="text-sm text-mute">Logistik</p>
-                            <div>
-                                <h3 class="font-medium group-hover:text-accent">Ase Logistik CMS <span class="text-mute">↗</span></h3>
-                                <p class="mt-2 text-mute">Fitur CMS untuk operasional Antar Samudera Express beserta peningkatan performanya.</p>
-                                <p class="mt-2 text-sm text-mute">Laravel · MySQL</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="py-6">
-                        <a href="https://ciptaprogresa.com/progress" target="_blank" rel="noopener noreferrer" class="group grid gap-2 sm:grid-cols-[150px_1fr]">
-                            <p class="text-sm text-mute">Konstruksi</p>
-                            <div>
-                                <h3 class="font-medium group-hover:text-accent">Progress+ <span class="text-mute">↗</span></h3>
-                                <p class="mt-2 text-mute">Fitur CMS untuk monitoring progres proyek Cipta Progresa Usaha.</p>
-                                <p class="mt-2 text-sm text-mute">Laravel · MySQL</p>
-                            </div>
-                        </a>
-                    </li>
-                    <!-- EXTRA PROJECTS (HIDDEN BY DEFAULT) -->
-                    <div id="extra-projects" class="hidden contents">
-                        <li class="py-6">
-                            <a href="https://play.google.com/store/apps/details?id=com.pertamina.informs&hl=in&gl=US" target="_blank" rel="noopener noreferrer" class="group grid gap-2 sm:grid-cols-[150px_1fr]">
-                                <p class="text-sm text-mute">Mobile backend</p>
-                                <div>
-                                    <h3 class="font-medium group-hover:text-accent">Pertamina Informs <span class="text-mute">↗</span></h3>
-                                    <p class="mt-2 text-mute">Wrapping API dashboard untuk aplikasi mobile Pertamina dan layanan notifikasi.</p>
-                                    <p class="mt-2 text-sm text-mute">Node.js · Kafka · MySQL · Firebase</p>
+                                <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                                    <h3 class="text-lg font-semibold group-hover:text-accent">{p.title} {p.url && <span class="font-normal text-mute" aria-hidden="true">↗</span>}</h3>
+                                    <p class="label">{p.sector}{p.period && ` · ${p.period}`}</p>
                                 </div>
-                            </a>
-                        </li>
-                        <li class="py-6">
-                            <a href="https://pijarsekolah.id" target="_blank" rel="noopener noreferrer" class="group grid gap-2 sm:grid-cols-[150px_1fr]">
-                                <p class="text-sm text-mute">Edutech</p>
-                                <div>
-                                    <h3 class="font-medium group-hover:text-accent">Pijar Sekolah <span class="text-mute">↗</span></h3>
-                                    <p class="mt-2 text-mute">API manajemen user dashboard dan layanan pelaporan data pendidikan.</p>
-                                    <p class="mt-2 text-sm text-mute">Node.js · React</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="grid gap-2 py-6 sm:grid-cols-[150px_1fr]">
-                            <p class="text-sm text-mute">CMS</p>
-                            <div>
-                                <h3 class="font-medium">Yakes Telkom CMS</h3>
-                                <p class="mt-2 text-mute">CMS kustom berbasis CodeIgniter dengan multi-user dan role-based access control.</p>
-                                <p class="mt-2 text-sm text-mute">PHP (CodeIgniter) · MySQL</p>
+                                <dl class="mt-3 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-[90px_1fr]">
+                                    <dt class="label pt-0.5">Klien</dt><dd>{p.client}</dd>
+                                    <dt class="label pt-0.5">Lingkup</dt><dd class="text-mute">{p.scope}</dd>
+                                    <dt class="label pt-0.5">Stack</dt><dd class="font-mono text-xs leading-6 text-mute">{p.stack}</dd>
+                                </dl>
                             </div>
-                        </li>
-                    </div>
+                        </>;
+                        // Projects past the first list stay hidden until toggleProjects() reveals them
+                        const extra = i >= projects.length;
+                        return <li class={extra ? 'hidden' : undefined} data-extra={extra || undefined}>{p.url
+                            ? <a href={p.url} target="_blank" rel="noopener noreferrer" class={cls}>{body}</a>
+                            : <div class={cls}>{body}</div>}</li>;
+                    })}
                 </ul>
-                <button id="btn-load-more" onclick="toggleProjects()" class="u mt-4 text-sm" aria-expanded="false" aria-controls="extra-projects">
+                <button id="btn-load-more" onclick="toggleProjects()" class="u mt-5 text-sm" aria-expanded="false" aria-controls="project-list">
                     <span id="btn-text">Tampilkan 3 proyek lainnya</span>
                 </button>
             </div>
         </section>
 
         <!-- Skills -->
-        <section id="skills" class="grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid-cols-[180px_1fr] md:py-20">
-            <h2 class="text-sm text-mute">04 — Keahlian</h2>
-            <dl class="grid gap-x-10 gap-y-6 sm:grid-cols-2">
-                <div>
-                    <dt class="font-medium">Backend</dt>
+        <section id="skills" class={sectionClass}>
+            <h2 class="label">04 / Keahlian</h2>
+            <dl class="grid border-t border-line sm:grid-cols-2">
+                <div class="border-b border-line py-5 sm:pr-8">
+                    <dt class="font-semibold">Backend</dt>
                     <dd class="mt-1 text-mute">Go (Fiber, Echo, Gin), Node.js (NestJS, Express), Rust (Actix Web, Axum, Tokio), PHP (Laravel, CodeIgniter), TypeScript.</dd>
                 </div>
-                <div>
-                    <dt class="font-medium">Data & messaging</dt>
+                <div class="border-b border-line py-5 sm:border-l sm:pl-8">
+                    <dt class="font-semibold">Data & messaging</dt>
                     <dd class="mt-1 text-mute">PostgreSQL, MySQL, MongoDB, Redis, Kafka, RabbitMQ, optimasi query.</dd>
                 </div>
-                <div>
-                    <dt class="font-medium">API, keamanan & infra</dt>
+                <div class="border-b border-line py-5 sm:pr-8">
+                    <dt class="font-semibold">API, keamanan & infrastruktur</dt>
                     <dd class="mt-1 text-mute">REST, GraphQL, JWT/OAuth, enkripsi & hashing, RBAC, Docker, CI/CD, Git (GitHub, GitLab, Gitea).</dd>
                 </div>
-                <div>
-                    <dt class="font-medium">Frontend & cara kerja</dt>
+                <div class="border-b border-line py-5 sm:border-l sm:pl-8">
+                    <dt class="font-semibold">Frontend & metodologi</dt>
                     <dd class="mt-1 text-mute">React, Next.js, Tailwind CSS, Firebase. Agile, Scrum, Kanban.</dd>
                 </div>
             </dl>
         </section>
 
         <!-- Services & pricing -->
-        <section id="services" class="grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid-cols-[180px_1fr] md:py-20">
-            <h2 class="text-sm text-mute">05 — Layanan & harga</h2>
+        <section id="services" class={sectionClass}>
+            <h2 class="label">05 / Layanan & harga</h2>
             <div class="min-w-0">
-                <p class="max-w-2xl text-lg leading-relaxed">
-                    Layanan meliputi pembuatan website, aplikasi web, backend API, dan pemeliharaan.
-                    Harga berikut adalah biaya awal. Fitur, waktu pengerjaan, dan biaya akhir disepakati sebelum proyek dimulai. Konsultasi awal gratis.
+                <p class="max-w-3xl text-lg leading-relaxed">
+                    Pembuatan website, aplikasi web, backend API, dan pemeliharaan.
+                    Harga berikut adalah biaya awal; fitur, waktu pengerjaan, dan biaya akhir disepakati sebelum proyek dimulai.
+                    <span class="text-mute">Konsultasi awal tanpa biaya.</span>
                 </p>
 
                 <div class="mt-10 overflow-x-auto">
                     <table class="price w-full border-collapse text-left text-sm sm:min-w-[640px]">
                         <thead>
-                            <tr class="border-b border-line text-mute">
-                                <th class="py-3 pr-4 font-normal">Layanan</th>
-                                <th class="py-3 pr-4 font-normal">Termasuk</th>
-                                <th class="py-3 pr-4 font-normal">Estimasi</th>
-                                <th class="py-3 font-normal text-right">Mulai dari</th>
+                            <tr class="border-y border-line">
+                                <th class="label py-3 pr-4 font-normal">Layanan</th>
+                                <th class="label py-3 pr-4 font-normal">Termasuk</th>
+                                <th class="label py-3 pr-4 font-normal">Estimasi</th>
+                                <th class="label py-3 font-normal text-right">Mulai dari</th>
                                 <th class="py-3 pl-4"><span class="sr-only">Aksi</span></th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-line align-top">
-                            <tr>
-                                <td class="py-5 pr-4 font-medium text-base">Landing page & company profile</td>
-                                <td class="py-5 pr-4 text-mute">Website hingga 5 halaman, desain responsif, SEO dasar, tautan WhatsApp, dan deployment. Materi teks dan foto dari klien.</td>
-                                <td class="py-5 pr-4 text-mute whitespace-nowrap">1–2 minggu</td>
-                                <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 3 jt</td>
-                                <td class="py-5 pl-4 text-right"><a href="mailto:wahyuakbar.work@gmail.com" data-mailto data-plan="Landing Page" class="u whitespace-nowrap">Diskusikan</a></td>
-                            </tr>
-                            <tr>
-                                <td class="py-5 pr-4 font-medium text-base">Backend API & integrasi</td>
-                                <td class="py-5 pr-4 text-mute">API untuk satu alur bisnis, database, autentikasi, dokumentasi, dan deployment. Jumlah endpoint serta integrasi ditentukan dalam proposal.</td>
-                                <td class="py-5 pr-4 text-mute whitespace-nowrap">2–4 minggu</td>
-                                <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 7,5 jt</td>
-                                <td class="py-5 pl-4 text-right"><a href="mailto:wahyuakbar.work@gmail.com" data-mailto data-plan="Backend API" class="u whitespace-nowrap">Diskusikan</a></td>
-                            </tr>
-                            <tr>
-                                <td class="py-5 pr-4 font-medium text-base">Aplikasi web fullstack</td>
-                                <td class="py-5 pr-4 text-mute">Aplikasi dengan login, dashboard, dan hingga 3 modul sederhana sesuai kesepakatan. Termasuk source code, dokumentasi, deployment, dan perbaikan bug selama 30 hari.</td>
-                                <td class="py-5 pr-4 text-mute whitespace-nowrap">4–8 minggu</td>
-                                <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 15 jt</td>
-                                <td class="py-5 pl-4 text-right"><a href="mailto:wahyuakbar.work@gmail.com" data-mailto data-plan="Aplikasi Web Fullstack" class="u whitespace-nowrap">Diskusikan</a></td>
-                            </tr>
-                            <tr>
-                                <td class="py-5 pr-4 font-medium text-base">Maintenance & support</td>
-                                <td class="py-5 pr-4 text-mute">Hingga 5 jam kerja per bulan untuk perbaikan bug, pembaruan dependensi, dan pengecekan backup. Dikerjakan pada jam kerja; fitur baru dihitung terpisah.</td>
-                                <td class="py-5 pr-4 text-mute whitespace-nowrap">Bulanan</td>
-                                <td class="serif py-5 text-right text-2xl whitespace-nowrap">Rp 1,5 jt<span class="text-sm text-mute">/bln</span></td>
-                                <td class="py-5 pl-4 text-right"><a href="mailto:wahyuakbar.work@gmail.com" data-mailto data-plan="Maintenance" class="u whitespace-nowrap">Diskusikan</a></td>
-                            </tr>
+                        <tbody class="divide-y divide-line border-b border-line align-top">
+                            {services.map((s) => <tr>
+                                <td class="py-5 pr-4 text-base font-semibold">{s.name}</td>
+                                <td class="py-5 pr-4 text-mute">{s.scope}</td>
+                                <td class="py-5 pr-4 font-mono text-xs leading-6 text-mute whitespace-nowrap">{s.time}</td>
+                                <td class="py-5 text-right text-xl font-semibold tracking-tight whitespace-nowrap">{s.price}{s.unit && <span class="text-sm font-normal text-mute">{s.unit}</span>}</td>
+                                <td class="py-5 pl-4 text-right"><a href="mailto:wahyuakbar.work@gmail.com" data-mailto data-plan={s.plan} class="u whitespace-nowrap">Diskusikan</a></td>
+                            </tr>)}
                         </tbody>
                     </table>
                 </div>
@@ -481,45 +407,26 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
         </section>
 
         <!-- Process -->
-        <section id="process" class="grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid-cols-[180px_1fr] md:py-20">
-            <h2 class="text-sm text-mute">06 — Cara kerja</h2>
-            <ol class="divide-y divide-line">
-                <li class="grid gap-2 py-5 first:pt-0 sm:grid-cols-[150px_1fr]">
-                    <p class="serif text-2xl leading-none">1</p>
-                    <div><h3 class="font-medium">Diskusi kebutuhan</h3><p class="mt-1 text-mute">Membahas kebutuhan proyek, perkiraan biaya, dan waktu pengerjaan.</p></div>
-                </li>
-                <li class="grid gap-2 py-5 sm:grid-cols-[150px_1fr]">
-                    <p class="serif text-2xl leading-none">2</p>
-                    <div><h3 class="font-medium">Proposal & kesepakatan</h3><p class="mt-1 text-mute">Ruang lingkup tertulis, milestone, dan jadwal pembayaran: DP 50%, pelunasan saat serah terima.</p></div>
-                </li>
-                <li class="grid gap-2 py-5 sm:grid-cols-[150px_1fr]">
-                    <p class="serif text-2xl leading-none">3</p>
-                    <div><h3 class="font-medium">Desain & arsitektur</h3><p class="mt-1 text-mute">Menyepakati skema database, desain API, dan rancangan antarmuka sebelum pengembangan.</p></div>
-                </li>
-                <li class="grid gap-2 py-5 sm:grid-cols-[150px_1fr]">
-                    <p class="serif text-2xl leading-none">4</p>
-                    <div><h3 class="font-medium">Pengembangan</h3><p class="mt-1 text-mute">Pengerjaan bertahap dengan demo mingguan dan akses ke staging.</p></div>
-                </li>
-                <li class="grid gap-2 py-5 sm:grid-cols-[150px_1fr]">
-                    <p class="serif text-2xl leading-none">5</p>
-                    <div><h3 class="font-medium">Pengujian & UAT</h3><p class="mt-1 text-mute">Pengujian fungsional dan keamanan, lalu User Acceptance Test bersama Anda dengan sesi revisi.</p></div>
-                </li>
-                <li class="grid gap-2 py-5 sm:grid-cols-[150px_1fr]">
-                    <p class="serif text-2xl leading-none">6</p>
-                    <div><h3 class="font-medium">Go-live & serah terima</h3><p class="mt-1 text-mute">Deploy ke production, dokumentasi, source code, dan sesi handover. Garansi bug 30 hari setelah rilis.</p></div>
-                </li>
+        <section id="process" class={sectionClass}>
+            <h2 class="label">06 / Cara kerja</h2>
+            <ol class="grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+                {steps.map(([title, desc], i) => <li class="border-b border-line py-6 sm:pr-8">
+                    <p class="label">Tahap {String(i + 1).padStart(2, '0')}</p>
+                    <h3 class="mt-3 font-semibold">{title}</h3>
+                    <p class="mt-1 text-sm text-mute">{desc}</p>
+                </li>)}
             </ol>
         </section>
 
         <!-- Articles -->
-        <section id="articles" class="grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid-cols-[180px_1fr] md:py-20">
-            <h2 class="text-sm text-mute">07 — Tulisan</h2>
-            <ul id="articles-list" class="divide-y divide-line">
-                {articles.map((article) => <li class="py-6 first:pt-0">
-                    <a href={`/articles/${article.slug}/`} class="group grid gap-2 sm:grid-cols-[150px_1fr]">
-                        <p class="text-sm text-mute">{articleDate(article.date)}</p>
+        <section id="articles" class={sectionClass}>
+            <h2 class="label">07 / Tulisan</h2>
+            <ul id="articles-list" class="divide-y divide-line border-y border-line">
+                {articles.map((article) => <li>
+                    <a href={`/articles/${article.slug}/`} class="group grid gap-2 py-6 sm:grid-cols-[170px_1fr]">
+                        <p class="label pt-1">{articleDate(article.date)}</p>
                         <div>
-                            <h3 class="font-medium group-hover:text-accent">{article.title}</h3>
+                            <h3 class="font-semibold group-hover:text-accent">{article.title}</h3>
                             <p class="mt-2 text-mute">{article.excerpt}</p>
                         </div>
                     </a>
@@ -529,29 +436,29 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
 
         <!-- Contact -->
         <section id="contact" class="border-t border-line py-20 scroll-mt-16 md:py-28">
-            <p class="text-sm text-mute">08 — Kontak</p>
-            <h2 class="serif mt-6 max-w-3xl text-5xl leading-[1.02] sm:text-6xl">Hubungi saya.</h2>
-            <p class="mt-6 max-w-xl text-lg leading-relaxed text-mute">Untuk diskusi proyek atau kerja sama, kirim gambaran kebutuhan Anda melalui email.</p>
+            <p class="label">08 / Kontak</p>
+            <h2 class="mt-6 max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">Punya sistem yang perlu dibangun atau dirapikan?</h2>
+            <p class="mt-6 max-w-xl text-lg leading-relaxed text-mute">Kirim gambaran kebutuhan Anda melalui email.</p>
             <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <a href="mailto:wahyuakbar.work@gmail.com" data-mailto class="contact-email serif u">wahyuakbar.work@gmail.com</a>
+                <a href="mailto:wahyuakbar.work@gmail.com" data-mailto class="contact-email u font-semibold tracking-tight">wahyuakbar.work@gmail.com</a>
                 <button id="copy-email" data-email="wahyuakbar.work@gmail.com" class="u text-sm text-mute" aria-label="Salin alamat email"><span id="copy-email-text">Salin alamat</span></button>
             </div>
             <div class="mt-8 flex gap-6 text-sm">
                 <a href="https://github.com/wahyuakbarwibowo" target="_blank" rel="noopener noreferrer" class="u">GitHub</a>
                 <a href="https://www.linkedin.com/in/wahyu-akbar-wibowo" target="_blank" rel="noopener noreferrer" class="u">LinkedIn</a>
-                <a href="./assets/pdf/cv.pdf?v=2026-02" download="Wahyu_Akbar_Wibowo_CV.pdf" class="u">CV (PDF)</a>
+                <a href={cv} download="Wahyu_Akbar_Wibowo_CV.pdf" class="u">CV (PDF)</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer class="border-t border-line">
-        <div class="mx-auto grid max-w-5xl gap-8 px-6 py-10 text-sm text-mute md:grid-cols-[1fr_auto] md:items-end">
+        <div class="mx-auto grid max-w-6xl gap-6 px-6 py-10 text-sm text-mute md:grid-cols-[1fr_auto] md:items-end">
             <div>
-                <p class="font-medium text-ink">Wahyu Akbar Wibowo</p>
-                <p class="mt-2">Fullstack Developer · Bojonegoro, Indonesia</p>
+                <p class="font-semibold text-ink">Wahyu Akbar Wibowo</p>
+                <p class="mt-1">Fullstack Developer · Bojonegoro, Indonesia</p>
             </div>
-            <p>&copy; <span id="year"></span> Wahyu Akbar Wibowo</p>
+            <p class="label">&copy; <span id="year"></span> Wahyu Akbar Wibowo</p>
         </div>
     </footer>
 
@@ -560,10 +467,10 @@ const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 
         <div class="absolute inset-0 bg-ink/60" onclick="closeCvModal()"></div>
         <div class="relative flex h-[85vh] w-full max-w-4xl flex-col overflow-hidden border border-line bg-paper">
             <div class="flex items-center justify-between gap-4 border-b border-line px-5 py-3">
-                <h3 class="serif truncate text-xl">CV — Wahyu Akbar Wibowo</h3>
+                <h3 class="truncate font-semibold">CV — Wahyu Akbar Wibowo</h3>
                 <div class="flex shrink-0 items-center gap-5 text-sm">
-                    <a href="./assets/pdf/cv.pdf?v=2026-02" target="_blank" rel="noopener" class="u">Buka di tab baru</a>
-                    <a href="./assets/pdf/cv.pdf?v=2026-02" download="Wahyu_Akbar_Wibowo_CV.pdf" class="u">Unduh</a>
+                    <a href={cv} target="_blank" rel="noopener" class="u">Buka di tab baru</a>
+                    <a href={cv} download="Wahyu_Akbar_Wibowo_CV.pdf" class="u">Unduh</a>
                     <button onclick="closeCvModal()" class="u" aria-label="Tutup pratinjau">Tutup</button>
                 </div>
             </div>

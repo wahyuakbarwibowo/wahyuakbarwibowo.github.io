@@ -87,9 +87,10 @@ document.addEventListener('keydown', (e) => {
 
 // Extra projects toggle
 function toggleProjects() {
-    const extra = document.getElementById('extra-projects');
+    const extra = document.querySelectorAll('#project-list [data-extra]');
     const btn = document.getElementById('btn-load-more');
-    const isHidden = extra.classList.toggle('hidden');
+    const isHidden = !extra[0].classList.contains('hidden');
+    extra.forEach(li => li.classList.toggle('hidden', isHidden));
     btn.setAttribute('aria-expanded', String(!isHidden));
     document.getElementById('btn-text').textContent = isHidden ? 'Tampilkan 3 proyek lainnya' : 'Sembunyikan proyek lainnya';
 }
