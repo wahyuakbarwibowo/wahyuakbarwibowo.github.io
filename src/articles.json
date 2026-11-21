@@ -2,7 +2,7 @@
   {
     "slug": "design-system",
     "title": "Design system itu bukan soal warna dan komponen",
-    "date": "2026-09-11",
+    "date": "2026-10-14",
     "excerpt": "Yang bikin design system berguna bukan library komponennya, tapi kesepakatan yang dipegang semua orang sebelum komponen itu dipakai.",
     "body": [
       { "type": "p", "text": "Waktu pertama kali dengar “design system”, bayangan saya cuma Storybook dan sekumpulan tombol berwarna-warni. Setelah beberapa tahun ikut membangun sistem yang dipakai banyak tim — dari portal perizinan sampai dashboard internal — saya sadar bagian tersulitnya bukan di situ. Komponen gampang dibuat ulang. Yang susah adalah bikin semua orang, lintas tim, sepakat kapan pakai komponen apa, dan kenapa." },
@@ -17,7 +17,7 @@
   {
     "slug": "requirement-gathering",
     "title": "Requirement gathering: pertanyaan yang sering dilewatkan",
-    "date": "2026-09-11",
+    "date": "2026-08-27",
     "excerpt": "Kebanyakan bug fitur bukan karena salah coding, tapi karena requirement yang dianggap jelas padahal cuma jelas di kepala satu orang.",
     "body": [
       { "type": "p", "text": "Requirement yang datang ke developer biasanya sudah melewati beberapa tangan: klien ke PM, PM ke tim, lalu jadi tiket. Setiap perpindahan itu ada informasi yang hilang atau berubah bentuk. Bertahun-tahun mengerjakan sistem untuk instansi dan fintech, saya belajar bahwa requirement yang “kelihatannya jelas” justru paling sering bikin masalah, karena tidak ada yang berani tanya ulang." },
@@ -31,7 +31,7 @@
   {
     "slug": "ownership",
     "title": "Sense of ownership: kenapa 'bukan tugas saya' itu mahal",
-    "date": "2026-09-11",
+    "date": "2026-06-09",
     "excerpt": "Kualitas terbaik dari developer bukan skill teknisnya, tapi seberapa jauh dia mau peduli pada bagian yang bukan miliknya.",
     "body": [
       { "type": "p", "text": "Ada satu kebiasaan yang membedakan developer yang enak diajak kerja lama dari yang tidak: apa yang dia lakukan ketika menemukan bug di modul yang bukan bagiannya. Sebagian orang lapor lalu lanjut kerja sendiri. Sebagian lagi berhenti sebentar, cek root cause-nya, dan kasih tahu tim dengan detail yang cukup buat langsung diperbaiki. Bedanya cuma beberapa menit, tapi dampaknya ke tim jauh lebih besar." },
@@ -45,7 +45,7 @@
   {
     "slug": "attitude",
     "title": "Attitude yang sebenarnya dicari tim engineering",
-    "date": "2026-09-11",
+    "date": "2026-03-18",
     "excerpt": "Skill bisa diajarkan lebih cepat daripada sikap. Ini yang saya perhatikan setelah bekerja di tim kecil startup dan tim besar lintas instansi.",
     "body": [
       { "type": "p", "text": "Setelah pindah dari tim kecil di startup ke proyek yang melibatkan banyak instansi dan vendor sekaligus, saya sadar skala kerja berubah drastis, tapi sikap yang dibutuhkan justru sama: jujur soal progres, terbuka soal kesalahan, dan tidak menunggu diminta untuk kasih kabar kalau ada yang meleset." },
@@ -59,7 +59,7 @@
   {
     "slug": "ai-workflow",
     "title": "Workflow AI yang benar-benar mempercepat, bukan sekadar terlihat canggih",
-    "date": "2026-09-11",
+    "date": "2025-12-02",
     "excerpt": "AI coding assistant paling efektif kalau posisinya jelas: bukan pengganti keputusan, tapi pelaksana yang cepat dari keputusan yang sudah dipikirkan.",
     "body": [
       { "type": "p", "text": "Sejak AI coding assistant jadi bagian sehari-hari, saya lihat dua pola developer: yang pakainya asal ketik lalu tempel hasilnya mentah-mentah, dan yang pakainya seperti pair programmer yang cepat tapi tetap perlu diarahkan. Bedanya bukan di alatnya, tapi di workflow-nya. Alat yang sama bisa mempercepat atau justru menambah utang teknis, tergantung bagaimana dia dipakai." },
