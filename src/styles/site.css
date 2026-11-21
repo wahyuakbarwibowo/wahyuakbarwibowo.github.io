@@ -13,9 +13,6 @@ nav button { min-width: 44px; min-height: 44px; }
 /* Hairline underline that turns accent on hover — used for inline links */
 .u { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: var(--line); transition: text-decoration-color .2s, color .2s; }
 .u:hover { text-decoration-color: var(--accent); color: var(--accent); }
-.term-tab { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); padding: .5rem .75rem; border-bottom: 1px solid transparent; }
-.term-tab:hover { color: var(--ink); }
-.term-tab.is-active { color: var(--ink); border-bottom-color: var(--accent); }
 .contact-email { font-size: clamp(1.25rem, 5vw, 2.25rem); overflow-wrap: anywhere; }
 .article-content { line-height: 1.8; }
 .article-content h2 { line-height: 1.3; }
@@ -23,3 +20,8 @@ nav button { min-width: 44px; min-height: 44px; }
   html { scroll-behavior: auto !important; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+/* Buttons: hero/nav CTAs. 44px tall for touch; primary is solid ink, secondary is outlined */
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 2.75rem; padding: 0 1.25rem; border: 1px solid var(--line); border-radius: .5rem; font-size: .875rem; font-weight: 500; color: var(--ink); transition: background-color .2s, border-color .2s, color .2s; }
+.btn:hover { border-color: var(--ink); }
+.btn-primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.btn-primary:hover { opacity: .85; border-color: var(--ink); }

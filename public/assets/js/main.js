@@ -70,28 +70,3 @@ function toggleProjects() {
     btn.setAttribute('aria-expanded', String(!isHidden));
     document.getElementById('btn-text').textContent = isHidden ? 'Tampilkan 3 proyek lainnya' : 'Sembunyikan proyek lainnya';
 }
-
-// Terminal contact box: tabs swap the shown command and what COPY copies
-const termVerb = document.getElementById('term-verb');
-const termArg = document.getElementById('term-arg');
-const termCopy = document.getElementById('term-copy');
-document.querySelectorAll('.term-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-        document.querySelectorAll('.term-tab').forEach(t => {
-            t.classList.toggle('is-active', t === tab);
-            t.setAttribute('aria-selected', String(t === tab));
-        });
-        termVerb.textContent = tab.dataset.verb + ' ';
-        termArg.textContent = tab.dataset.arg;
-        termCopy.dataset.copy = tab.dataset.copy;
-    });
-});
-termCopy.addEventListener('click', async () => {
-    try {
-        await navigator.clipboard.writeText(termCopy.dataset.copy);
-        termCopy.textContent = 'Copied';
-        setTimeout(() => { termCopy.textContent = 'Copy'; }, 2000);
-    } catch {
-        window.location.href = mailtoHref();
-    }
-});

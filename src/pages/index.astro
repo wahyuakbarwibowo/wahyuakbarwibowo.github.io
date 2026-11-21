@@ -98,8 +98,6 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
         }
     </script>
     <style>
-        .portrait img { filter: grayscale(1) contrast(1.05); }
-
         /* Single, quiet entrance on load */
         .fade { animation: fade .6s ease both; }
 
@@ -161,39 +159,29 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
     <main id="main-content" tabindex="-1" class="mx-auto max-w-6xl px-6">
 
         <!-- Hero -->
-        <header class="fade flex min-h-[calc(100svh-4rem)] flex-col justify-center py-20">
-            <p class="label text-accent2">Fullstack Developer · Bojonegoro, ID</p>
-            <h1 class="mt-6 text-[clamp(2.4rem,1.2rem+3.8vw,4.4rem)] font-medium leading-[0.98] tracking-tight">
-                Backend dan web<br>
-                <span class="text-mute">untuk pemerintahan,</span><br>
-                <span class="text-accent">fintech &amp; energi</span>.
-            </h1>
-            <p class="mt-8 max-w-xl text-lg leading-relaxed text-mute">
-                Sejak 2020 merancang API, database, dan integrasi layanan —
-                termasuk OSS RBA (BKPM), Finpay Billing, dan MyPertamina Subsidi Tepat LPG.
-            </p>
-
-            <!-- Terminal-style contact box; tabs swap the command, COPY copies the value -->
-            <div class="mt-10 w-full max-w-2xl">
-                <div class="flex items-end justify-between gap-4">
-                    <div class="flex gap-1" role="tablist" aria-label="Kontak">
-                        <button class="term-tab is-active" role="tab" aria-selected="true" data-verb="mail" data-arg="wahyuakbar.work@gmail.com" data-copy="wahyuakbar.work@gmail.com">email</button>
-                        <button class="term-tab" role="tab" aria-selected="false" data-verb="open" data-arg="github.com/wahyuakbarwibowo" data-copy="https://github.com/wahyuakbarwibowo">github</button>
-                        <button class="term-tab" role="tab" aria-selected="false" data-verb="open" data-arg="linkedin.com/in/wahyu-akbar-wibowo" data-copy="https://www.linkedin.com/in/wahyu-akbar-wibowo">linkedin</button>
-                    </div>
-                    <span class="label hidden pb-2 sm:block">Konsultasi gratis</span>
+        <header class="fade grid items-center gap-10 py-16 md:grid-cols-[1fr_240px] md:py-24 lg:grid-cols-[1fr_280px] lg:gap-20">
+            <div>
+                <p class="text-sm text-mute">Fullstack Developer · Bojonegoro, Indonesia</p>
+                <h1 class="mt-5 text-[clamp(2.1rem,1.3rem+2.6vw,3.5rem)] font-medium leading-[1.08] tracking-tight">
+                    Backend dan aplikasi web <span class="text-mute">untuk pemerintahan, fintech, dan energi.</span>
+                </h1>
+                <p class="mt-6 max-w-xl text-lg leading-relaxed text-mute">
+                    Sejak 2020 merancang API, database, dan integrasi layanan dengan Go, Node.js, Rust, dan PostgreSQL —
+                    termasuk OSS RBA (BKPM), Finpay Billing, dan MyPertamina Subsidi Tepat LPG.
+                </p>
+                <div class="mt-8 flex flex-wrap items-center gap-3">
+                    <a href="#contact" class="btn btn-primary">Hubungi saya</a>
+                    <a href={cv} download="Wahyu_Akbar_Wibowo_CV.pdf" class="btn">Unduh CV</a>
                 </div>
-                <div class="flex items-stretch border border-line bg-panel font-mono text-sm">
-                    <span class="flex items-center border-r border-line px-3 text-accent sm:px-4" aria-hidden="true">$</span>
-                    <code class="min-w-0 flex-1 px-3 py-4 text-xs [overflow-wrap:anywhere] sm:px-4 sm:text-sm"><span id="term-verb" class="hidden text-mute sm:inline">mail </span><span id="term-arg">wahyuakbar.work@gmail.com</span></code>
-                    <button id="term-copy" class="label border-l border-line px-3 sm:px-5 transition hover:text-ink" data-copy="wahyuakbar.work@gmail.com">Copy</button>
+                <div class="mt-6 flex gap-6 text-sm">
+                    <a href="https://github.com/wahyuakbarwibowo" target="_blank" rel="noopener noreferrer" class="u">GitHub</a>
+                    <a href="https://www.linkedin.com/in/wahyu-akbar-wibowo" target="_blank" rel="noopener noreferrer" class="u">LinkedIn</a>
                 </div>
             </div>
-
-            <div class="mt-8">
-                <p class="label">Stack utama</p>
-                <p class="mt-3 font-mono text-sm text-mute">Go · Rust · Node.js · TypeScript · PostgreSQL · Kafka · Redis · React</p>
-            </div>
+            <figure class="order-first w-32 md:order-none md:w-full">
+                <img src="./assets/img/wahyu.jpg" alt="Foto Wahyu Akbar Wibowo" width="640" height="611" fetchpriority="high"
+                    class="aspect-[4/5] w-full rounded-xl border border-line object-cover object-top">
+            </figure>
         </header>
 
         <dl class="grid grid-cols-2 border-y border-line md:grid-cols-4">
@@ -209,7 +197,6 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
         <!-- About -->
         <section id="about" class={sectionClass}>
             <h2 class="label">01 / Tentang</h2>
-            <div class="grid gap-10 md:grid-cols-[1fr_200px]">
             <div class="max-w-3xl space-y-5 text-lg leading-relaxed">
                 <p>
                     Fokus saya di backend: desain database, API, keamanan data, dan integrasi antar layanan.
@@ -219,16 +206,6 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
                     Terbiasa bekerja di sistem yang melibatkan banyak pihak — Kementerian, Lembaga, Daerah, biller, dan vendor —
                     di mana kontrak API yang jelas, audit trail, dan dokumentasi sama pentingnya dengan kode.
                 </p>
-                <div class="flex flex-wrap gap-x-6 gap-y-3 pt-2 text-sm">
-                    <a href="https://github.com/wahyuakbarwibowo" target="_blank" rel="noopener noreferrer" class="u">GitHub</a>
-                    <a href="https://www.linkedin.com/in/wahyu-akbar-wibowo" target="_blank" rel="noopener noreferrer" class="u">LinkedIn</a>
-                    <a href={cv} download="Wahyu_Akbar_Wibowo_CV.pdf" class="u">Unduh CV</a>
-                </div>
-            </div>
-            <figure class="portrait w-full max-w-[180px] md:max-w-[200px]">
-                <img src="./assets/img/wahyu.jpg" alt="Wahyu Akbar Wibowo" loading="lazy" width="640" height="611"
-                    class="aspect-[4/5] w-full border border-line object-cover object-top">
-            </figure>
             </div>
         </section>
 
