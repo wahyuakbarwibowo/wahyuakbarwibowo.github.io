@@ -138,4 +138,12 @@ function drawSun() {
 }
 drawSun();
 let sunTimer;
-window.addEventListener('resize', () => { clearTimeout(sunTimer); sunTimer = setTimeout(drawSun, 200); });
+// Mobile browsers fire resize when the URL bar slides; the canvas size stays the same,
+// so skip the redraw or the random dither visibly reshuffles while scrolling.
+window.addEventListener('resize', () => {
+    clearTimeout(sunTimer);
+    sunTimer = setTimeout(() => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        if (sun.width !== sun.clientWidth * dpr || sun.height !== sun.clientHeight * dpr) drawSun();
+    }, 200);
+});
