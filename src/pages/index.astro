@@ -37,28 +37,8 @@ const extraProjects = [
       stack: 'PHP (CodeIgniter) · MySQL' },
 ];
 
-const services = [
-    { name: 'Landing page & company profile', plan: 'Landing Page', time: '1–2 minggu', price: 'Rp 3 jt',
-      scope: 'Website hingga 5 halaman, desain responsif, SEO dasar, tautan WhatsApp, dan deployment. Materi teks dan foto dari klien.' },
-    { name: 'Backend API & integrasi', plan: 'Backend API', time: '2–4 minggu', price: 'Rp 7,5 jt',
-      scope: 'API untuk satu alur bisnis, database, autentikasi, dokumentasi, dan deployment. Jumlah endpoint serta integrasi ditentukan dalam proposal.' },
-    { name: 'Aplikasi web fullstack', plan: 'Aplikasi Web Fullstack', time: '4–8 minggu', price: 'Rp 15 jt',
-      scope: 'Aplikasi dengan login, dashboard, dan hingga 3 modul sederhana sesuai kesepakatan. Termasuk source code, dokumentasi, deployment, dan perbaikan bug selama 30 hari.' },
-    { name: 'Maintenance & support', plan: 'Maintenance', time: 'Bulanan', price: 'Rp 1,5 jt', unit: '/bln',
-      scope: 'Hingga 5 jam kerja per bulan untuk perbaikan bug, pembaruan dependensi, dan pengecekan backup. Dikerjakan pada jam kerja; fitur baru dihitung terpisah.' },
-];
-
-const steps = [
-    ['Diskusi kebutuhan', 'Membahas kebutuhan proyek, perkiraan biaya, dan waktu pengerjaan.'],
-    ['Proposal & kesepakatan', 'Ruang lingkup tertulis, milestone, dan jadwal pembayaran: DP 50%, pelunasan saat serah terima.'],
-    ['Desain & arsitektur', 'Menyepakati skema database, desain API, dan rancangan antarmuka sebelum pengembangan.'],
-    ['Pengembangan', 'Pengerjaan bertahap dengan demo mingguan dan akses ke staging.'],
-    ['Pengujian & UAT', 'Pengujian fungsional dan keamanan, lalu User Acceptance Test bersama Anda dengan sesi revisi.'],
-    ['Go-live & serah terima', 'Deploy ke production, dokumentasi, source code, dan sesi handover. Garansi bug 30 hari setelah rilis.'],
-];
-
-const rail = [['#about', 'Tentang'], ['#experience', 'Pengalaman'], ['#portfolio', 'Proyek'], ['#skills', 'Keahlian'], ['#services', 'Layanan'], ['#process', 'Proses'], ['#articles', 'Tulisan'], ['#contact', 'Kontak']];
-const nav = [['#about', 'Tentang'], ['#experience', 'Pengalaman'], ['#portfolio', 'Proyek'], ['#services', 'Layanan'], ['#articles', 'Tulisan']];
+const rail = [['#about', 'Tentang'], ['#experience', 'Pengalaman'], ['#portfolio', 'Proyek'], ['#skills', 'Keahlian'], ['#services', 'Layanan'], ['#articles', 'Tulisan'], ['#contact', 'Kontak']];
+const nav = [['#about', 'Tentang'], ['#experience', 'Pengalaman'], ['#portfolio', 'Proyek'], ['/layanan', 'Layanan'], ['#articles', 'Tulisan']];
 const cv = './assets/pdf/cv.pdf?v=2026-02';
 const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid-cols-[200px_1fr] md:py-20';
 ---
@@ -125,14 +105,6 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
         @keyframes fade {
             from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: none; }
-        }
-
-        /* Price table stacks into rows on narrow screens */
-        @media (max-width: 639px) {
-            .price thead { display: none; }
-            .price tbody, .price tr, .price td { display: block; text-align: left; padding: 0; }
-            .price tr { padding: 1.25rem 0; }
-            .price td + td { margin-top: .5rem; }
         }
     </style>
 </head>
@@ -373,57 +345,24 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
             </dl>
         </section>
 
-        <!-- Services & pricing -->
+        <!-- Services teaser; full pricing and process live on /layanan -->
         <section id="services" class={sectionClass}>
-            <h2 class="label">05 / Layanan & harga</h2>
-            <div class="min-w-0">
+            <h2 class="label">05 / Layanan</h2>
+            <div>
                 <p class="max-w-3xl text-lg leading-relaxed">
-                    Pembuatan website, aplikasi web, backend API, dan pemeliharaan.
-                    Harga berikut adalah biaya awal; fitur, waktu pengerjaan, dan biaya akhir disepakati sebelum proyek dimulai.
-                    <span class="text-mute">Konsultasi awal tanpa biaya.</span>
+                    Menerima proyek untuk bisnis dan instansi: website, aplikasi web fullstack, backend API &amp; integrasi, serta maintenance.
+                    <span class="text-mute">Ruang lingkup tertulis, demo mingguan, dan garansi bug 30 hari setelah rilis.</span>
                 </p>
-
-                <div class="mt-10 overflow-x-auto">
-                    <table class="price w-full border-collapse text-left text-sm sm:min-w-[640px]">
-                        <thead>
-                            <tr class="border-y border-line">
-                                <th class="label py-3 pr-4 font-normal">Layanan</th>
-                                <th class="label py-3 pr-4 font-normal">Termasuk</th>
-                                <th class="label py-3 pr-4 font-normal">Estimasi</th>
-                                <th class="label py-3 font-normal text-right">Mulai dari</th>
-                                <th class="py-3 pl-4"><span class="sr-only">Aksi</span></th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-line border-b border-line align-top">
-                            {services.map((s) => <tr>
-                                <td class="py-5 pr-4 text-base font-medium">{s.name}</td>
-                                <td class="py-5 pr-4 text-mute">{s.scope}</td>
-                                <td class="py-5 pr-4 font-mono text-xs leading-6 text-mute whitespace-nowrap">{s.time}</td>
-                                <td class="py-5 text-right text-xl font-medium tracking-tight whitespace-nowrap">{s.price}{s.unit && <span class="text-sm font-normal text-mute">{s.unit}</span>}</td>
-                                <td class="py-5 pl-4 text-right"><a href="mailto:wahyuakbar.work@gmail.com" data-mailto data-plan={s.plan} class="u whitespace-nowrap">Diskusikan</a></td>
-                            </tr>)}
-                        </tbody>
-                    </table>
+                <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+                    <a href="/layanan" class="u">Lihat layanan, harga &amp; cara kerja</a>
+                    <a href="mailto:wahyuakbar.work@gmail.com" data-mailto class="u">Diskusikan proyek</a>
                 </div>
-                <p class="mt-4 text-sm text-mute">Harga belum termasuk domain, hosting, dan layanan pihak ketiga. Pekerjaan tambahan Rp 300 rb/jam, dengan estimasi dan persetujuan sebelum dikerjakan. Estimasi waktu dihitung setelah kebutuhan dan materi lengkap.</p>
             </div>
-        </section>
-
-        <!-- Process -->
-        <section id="process" class={sectionClass}>
-            <h2 class="label">06 / Cara kerja</h2>
-            <ol class="grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-                {steps.map(([title, desc], i) => <li class="border-b border-line py-6 sm:pr-8">
-                    <p class="label">Tahap {String(i + 1).padStart(2, '0')}</p>
-                    <h3 class="mt-3 font-medium">{title}</h3>
-                    <p class="mt-1 text-sm text-mute">{desc}</p>
-                </li>)}
-            </ol>
         </section>
 
         <!-- Articles -->
         <section id="articles" class={sectionClass}>
-            <h2 class="label">07 / Tulisan</h2>
+            <h2 class="label">06 / Tulisan</h2>
             <ul id="articles-list" class="divide-y divide-line border-y border-line">
                 {articles.map((article) => <li>
                     <a href={`/articles/${article.slug}/`} class="group grid gap-2 py-6 sm:grid-cols-[170px_1fr]">
@@ -439,7 +378,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
 
         <!-- Contact -->
         <section id="contact" class="border-t border-line py-20 scroll-mt-16 md:py-28">
-            <p class="label">08 / Kontak</p>
+            <p class="label">07 / Kontak</p>
             <h2 class="mt-6 max-w-3xl text-4xl font-medium leading-[1.02] tracking-tight sm:text-6xl">Punya sistem<br><span class="text-mute">yang perlu dibangun</span><br><span class="text-accent">atau dirapikan</span>?</h2>
             <p class="mt-6 max-w-xl text-lg leading-relaxed text-mute">Kirim gambaran kebutuhan Anda melalui email.</p>
             <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -481,6 +420,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
         </div>
     </div>
 
+    <script src="./assets/js/mailto.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
 </body>
 
