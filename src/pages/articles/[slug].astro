@@ -9,7 +9,7 @@ export function getStaticPaths() {
 const { article } = Astro.props;
 const date = new Date(article.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
-<Page title={`${article.title} | Wahyu Akbar Wibowo`} description={article.excerpt}>
+<Page title={`${article.title} | Wahyu Akbar Wibowo`} description={article.excerpt} type="article">
   <a href="/#articles" class="u text-sm text-mute">&larr; Semua tulisan</a>
   <article class="article-content mt-8">
     <p class="label">{date}</p>
