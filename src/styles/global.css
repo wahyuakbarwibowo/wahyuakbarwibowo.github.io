@@ -1,0 +1,18 @@
+@import "tailwindcss";
+/* Site rules sit below utilities so a utility class always wins, as with the old CDN build */
+@import "./site.css" layer(components);
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tokens flip between light/dark via CSS variables in site.css, so no dark: prefixes are needed for colors */
+@theme inline {
+  --font-sans: Geist, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent2: var(--accent-2);
+  --color-panel: var(--panel);
+}
