@@ -13,15 +13,9 @@ nav button { min-width: 44px; min-height: 44px; }
 /* Hairline underline that turns accent on hover — used for inline links */
 .u { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: var(--line); transition: text-decoration-color .2s, color .2s; }
 .u:hover { text-decoration-color: var(--accent); color: var(--accent); }
-/* Film grain over everything; pure CSS, no image request */
-body::after { content: ""; position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .07; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 .term-tab { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); padding: .5rem .75rem; border-bottom: 1px solid transparent; }
 .term-tab:hover { color: var(--ink); }
 .term-tab.is-active { color: var(--ink); border-bottom-color: var(--accent); }
-.rail-item { position: relative; display: flex; align-items: center; justify-content: center; width: 3.5rem; height: 3.5rem; border-bottom: 1px solid var(--line); font-family: 'JetBrains Mono', ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; transition: background .2s; }
-.rail-item:last-child { border-bottom: 0; }
-.rail-item:hover { background: var(--panel); }
-.rail-item:hover span { color: var(--accent); }
 .contact-email { font-size: clamp(1.25rem, 5vw, 2.25rem); overflow-wrap: anywhere; }
 .article-content { line-height: 1.8; }
 .article-content h2 { line-height: 1.3; }
