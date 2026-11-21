@@ -42,8 +42,8 @@ const image = new URL('/assets/img/og.png', Astro.site);
   <a href="#main-content" class="skip-link">Langsung ke konten</a>
   <nav class="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-xs" aria-label="Menu utama">
     <div class={`mx-auto flex h-16 ${width} items-center justify-between px-6`}>
-      <a href="/" class="flex items-center gap-2 text-sm font-medium"><span class="font-mono text-accent">~/</span>wahyu</a>
-      <button onclick="toggleDarkMode()" aria-label="Ganti tema gelap/terang" class="border border-line p-2 text-mute transition hover:text-ink">
+      <a href="/" class="font-medium tracking-tight">Wahyu Akbar Wibowo</a>
+      <button onclick="toggleDarkMode()" aria-label="Ganti tema gelap/terang" class="rounded-md border border-line p-2 text-mute transition hover:text-ink">
         <svg class="block h-4 w-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         <svg class="hidden h-4 w-4 dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
       </button>
@@ -52,7 +52,7 @@ const image = new URL('/assets/img/og.png', Astro.site);
   <main id="main-content" tabindex="-1" class={`mx-auto ${width} px-6 py-16 md:py-20`}>
     <slot />
   </main>
-  <footer class="mt-10 border-t border-line"><div class={`mx-auto ${width} px-6 py-10 text-sm text-mute`}><p class="label">&copy; {new Date().getFullYear()} Wahyu Akbar Wibowo</p></div></footer>
+  <footer class="mt-10 border-t border-line"><div class={`mx-auto ${width} px-6 py-10 text-sm text-mute`}><p>&copy; {new Date().getFullYear()} Wahyu Akbar Wibowo</p></div></footer>
   <script is:inline>
     function toggleDarkMode() { document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); }
   </script>

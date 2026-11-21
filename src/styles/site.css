@@ -1,5 +1,5 @@
-:root { --paper: #faf8f5; --panel: #ffffff; --ink: #0b0b0c; --mute: #5f5f66; --line: #dcdcdf; --accent: #d9480f; --accent-2: #b26b00; }
-.dark { --paper: #0a0a0b; --panel: #0e0e10; --ink: #ededee; --mute: #8b8b93; --line: #222226; --accent: #ff8a3d; --accent-2: #f5b942; }
+:root { --paper: #faf8f5; --ink: #0b0b0c; --mute: #5f5f66; --line: #dcdcdf; --accent: #d9480f; }
+.dark { --paper: #0a0a0b; --ink: #ededee; --mute: #8b8b93; --line: #222226; --accent: #ff8a3d; }
 html { background: var(--paper); scroll-padding-top: 5rem; }
 body { line-height: 1.65; font-feature-settings: "ss02", "tnum"; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
@@ -8,20 +8,11 @@ button { cursor: pointer; }
 nav button { min-width: 44px; min-height: 44px; }
 .skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 100; padding: .75rem 1rem; background: var(--ink); color: var(--paper); transform: translateY(-200%); }
 .skip-link:focus { transform: translateY(0); }
-/* Small uppercase mono label used for section numbers and metadata */
-.label { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); }
+/* Small muted text for metadata: dates, field names, table headers */
+.label { font-size: .8125rem; color: var(--mute); }
 /* Hairline underline that turns accent on hover — used for inline links */
 .u { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: var(--line); transition: text-decoration-color .2s, color .2s; }
 .u:hover { text-decoration-color: var(--accent); color: var(--accent); }
-/* Film grain over everything; pure CSS, no image request */
-body::after { content: ""; position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .07; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-.term-tab { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); padding: .5rem .75rem; border-bottom: 1px solid transparent; }
-.term-tab:hover { color: var(--ink); }
-.term-tab.is-active { color: var(--ink); border-bottom-color: var(--accent); }
-.rail-item { position: relative; display: flex; align-items: center; justify-content: center; width: 3.5rem; height: 3.5rem; border-bottom: 1px solid var(--line); font-family: 'JetBrains Mono', ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; transition: background .2s; }
-.rail-item:last-child { border-bottom: 0; }
-.rail-item:hover { background: var(--panel); }
-.rail-item:hover span { color: var(--accent); }
 .contact-email { font-size: clamp(1.25rem, 5vw, 2.25rem); overflow-wrap: anywhere; }
 .article-content { line-height: 1.8; }
 .article-content h2 { line-height: 1.3; }
@@ -29,3 +20,8 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 60; pointer-event
   html { scroll-behavior: auto !important; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+/* Buttons: hero/nav CTAs. 44px tall for touch; primary is solid ink, secondary is outlined */
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 2.75rem; padding: 0 1.25rem; border: 1px solid var(--line); border-radius: .5rem; font-size: .875rem; font-weight: 500; color: var(--ink); transition: background-color .2s, border-color .2s, color .2s; }
+.btn:hover { border-color: var(--ink); }
+.btn-primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.btn-primary:hover { opacity: .85; border-color: var(--ink); }
