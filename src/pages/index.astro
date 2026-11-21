@@ -1,5 +1,6 @@
 ---
 import articles from '../articles.json';
+import '../styles/global.css';
 
 const articleDate = (date) => new Date(date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
 
@@ -108,36 +109,11 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
     <link
         href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css">
-        <script is:inline src="https://cdn.tailwindcss.com"></script>
     <script is:inline>
         // Apply saved theme before first paint to avoid flash of wrong theme
         if (localStorage.getItem('theme') === 'dark' ||
             (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
-        }
-    </script>
-    <script is:inline>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Geist', 'system-ui', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
-                    },
-                    // Tokens flip between light/dark via CSS variables, so no dark: prefixes needed
-                    colors: {
-                        paper: 'var(--paper)',
-                        ink: 'var(--ink)',
-                        mute: 'var(--mute)',
-                        line: 'var(--line)',
-                        accent: 'var(--accent)',
-                        accent2: 'var(--accent-2)',
-                        panel: 'var(--panel)',
-                    },
-                }
-            }
         }
     </script>
     <style>
@@ -166,7 +142,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
     <canvas id="sun" class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[100svh] w-full opacity-60 md:opacity-100" aria-hidden="true"></canvas>
 
     <!-- Section rail (desktop only) -->
-    <nav class="fixed left-5 top-1/2 z-30 hidden -translate-y-1/2 flex-col border border-line bg-paper/60 backdrop-blur-sm xl:flex" aria-label="Navigasi section">
+    <nav class="fixed left-5 top-1/2 z-30 hidden -translate-y-1/2 flex-col border border-line bg-paper/60 backdrop-blur-xs xl:flex" aria-label="Navigasi section">
         {rail.map(([href, label], i) => <a href={href} title={label} aria-label={label} class="rail-item">
             <span class="text-xs text-mute">{String(i + 1).padStart(2, '0')}</span>
         </a>)}
@@ -222,7 +198,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
 
         <!-- Hero -->
         <header class="fade flex min-h-[calc(100svh-4rem)] flex-col justify-center py-20">
-            <p class="label !text-accent2">Fullstack Developer · Bojonegoro, ID</p>
+            <p class="label text-accent2">Fullstack Developer · Bojonegoro, ID</p>
             <h1 class="mt-6 text-[clamp(2.4rem,1.2rem+3.8vw,4.4rem)] font-medium leading-[0.98] tracking-tight">
                 Backend dan web<br>
                 <span class="text-mute">untuk pemerintahan,</span><br>
@@ -501,7 +477,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
                     <button onclick="closeCvModal()" class="u" aria-label="Tutup pratinjau">Tutup</button>
                 </div>
             </div>
-            <iframe id="cv-frame" title="Pratinjau CV Wahyu Akbar Wibowo" class="w-full flex-grow bg-line"></iframe>
+            <iframe id="cv-frame" title="Pratinjau CV Wahyu Akbar Wibowo" class="w-full grow bg-line"></iframe>
         </div>
     </div>
 
