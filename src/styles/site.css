@@ -1,5 +1,5 @@
-:root { --paper: #faf8f5; --panel: #ffffff; --ink: #0b0b0c; --mute: #5f5f66; --line: #dcdcdf; --accent: #d9480f; --accent-2: #b26b00; }
-.dark { --paper: #0a0a0b; --panel: #0e0e10; --ink: #ededee; --mute: #8b8b93; --line: #222226; --accent: #ff8a3d; --accent-2: #f5b942; }
+:root { --paper: #faf8f5; --ink: #0b0b0c; --mute: #5f5f66; --line: #dcdcdf; --accent: #d9480f; }
+.dark { --paper: #0a0a0b; --ink: #ededee; --mute: #8b8b93; --line: #222226; --accent: #ff8a3d; }
 html { background: var(--paper); scroll-padding-top: 5rem; }
 body { line-height: 1.65; font-feature-settings: "ss02", "tnum"; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
@@ -8,8 +8,8 @@ button { cursor: pointer; }
 nav button { min-width: 44px; min-height: 44px; }
 .skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 100; padding: .75rem 1rem; background: var(--ink); color: var(--paper); transform: translateY(-200%); }
 .skip-link:focus { transform: translateY(0); }
-/* Small uppercase mono label used for section numbers and metadata */
-.label { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); }
+/* Small muted text for metadata: dates, field names, table headers */
+.label { font-size: .8125rem; color: var(--mute); }
 /* Hairline underline that turns accent on hover — used for inline links */
 .u { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: var(--line); transition: text-decoration-color .2s, color .2s; }
 .u:hover { text-decoration-color: var(--accent); color: var(--accent); }

@@ -39,7 +39,7 @@ const steps = [
     </header>
 
     <section class="mt-14" aria-labelledby="harga">
-        <h2 id="harga" class="label">01 / Harga</h2>
+        <h2 id="harga" class="text-xl font-medium tracking-tight">Harga</h2>
         <div class="mt-6 overflow-x-auto">
             <table class="price w-full border-collapse text-left text-sm sm:min-w-[640px]">
                 <thead>
@@ -66,7 +66,7 @@ const steps = [
     </section>
 
     <section class="mt-16" aria-labelledby="cara-kerja">
-        <h2 id="cara-kerja" class="label">02 / Cara kerja</h2>
+        <h2 id="cara-kerja" class="text-xl font-medium tracking-tight">Cara kerja</h2>
         <ol class="mt-6 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
             {steps.map(([title, desc], i) => <li class="border-b border-line py-6 sm:pr-8">
                 <p class="label">Tahap {String(i + 1).padStart(2, '0')}</p>

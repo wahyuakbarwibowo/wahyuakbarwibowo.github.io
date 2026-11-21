@@ -113,12 +113,12 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
     <!-- Navbar -->
     <nav class="sticky top-0 z-40 border-b border-line bg-paper/70 backdrop-blur-md" role="navigation" aria-label="Menu utama">
         <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-            <a href="#" class="flex items-center gap-2 text-sm font-medium"><span class="font-mono text-accent">~/</span>wahyu</a>
+            <a href="#" class="font-medium tracking-tight">Wahyu Akbar Wibowo</a>
 
-            <div class="hidden items-center gap-7 font-mono text-xs uppercase tracking-[.18em] lg:flex">
+            <div class="hidden items-center gap-7 text-sm lg:flex">
                 {nav.map(([href, label]) => <a href={href} class="text-mute transition hover:text-ink">{label}</a>)}
                 <button onclick="toggleDarkMode()" id="theme-toggle" aria-label="Ganti tema gelap/terang"
-                    class="border border-line p-2 text-mute transition hover:text-ink">
+                    class="rounded-md border border-line p-2 text-mute transition hover:text-ink">
                     <svg class="block h-4 w-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
                     </svg>
@@ -126,7 +126,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
                     </svg>
                 </button>
-                <a href="#contact" class="inline-flex h-11 items-center border border-line px-4 text-ink transition hover:border-accent hover:text-accent">Hubungi ↗</a>
+                <a href="#contact" class="btn btn-primary">Hubungi</a>
             </div>
 
             <button class="p-2 lg:hidden" id="menu-button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobile-menu">
@@ -143,7 +143,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
                 <div class="mt-3 flex items-center justify-between border-t border-line pt-4 text-sm text-mute">
                     <span>Ganti tema</span>
                     <button onclick="toggleDarkMode()" id="theme-toggle-mobile" aria-label="Ganti tema gelap/terang"
-                        class="border border-line p-2">
+                        class="rounded-md border border-line p-2">
                         <svg class="block h-4 w-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
                         </svg>
@@ -180,7 +180,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
             </div>
             <figure class="order-first w-32 md:order-none md:w-full">
                 <img src="./assets/img/wahyu.jpg" alt="Foto Wahyu Akbar Wibowo" width="640" height="611" fetchpriority="high"
-                    class="aspect-[4/5] w-full rounded-xl border border-line object-cover object-top">
+                    class="aspect-[4/5] w-full rounded-xl border border-line object-cover object-top grayscale contrast-105">
             </figure>
         </header>
 
@@ -196,7 +196,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
 
         <!-- About -->
         <section id="about" class={sectionClass}>
-            <h2 class="label">01 / Tentang</h2>
+            <h2 class="text-xl font-medium tracking-tight">Tentang</h2>
             <div class="max-w-3xl space-y-5 text-lg leading-relaxed">
                 <p>
                     Fokus saya di backend: desain database, API, keamanan data, dan integrasi antar layanan.
@@ -211,7 +211,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
 
         <!-- Experience -->
         <section id="experience" class={sectionClass}>
-            <h2 class="label">02 / Pengalaman</h2>
+            <h2 class="text-xl font-medium tracking-tight">Pengalaman</h2>
             <ol class="divide-y divide-line border-y border-line">
                 <li class="grid gap-2 py-6 sm:grid-cols-[170px_1fr]">
                     <p class="label pt-1">Jan 2026 — kini</p>
@@ -260,7 +260,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
 
         <!-- Projects -->
         <section id="portfolio" class={sectionClass}>
-            <h2 class="label">03 / Proyek pilihan</h2>
+            <h2 class="text-xl font-medium tracking-tight">Proyek pilihan</h2>
             <div>
                 <ul id="project-list" class="divide-y divide-line border-y border-line">
                     {[...projects, ...extraProjects].map((p, i) => {
@@ -294,7 +294,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
 
         <!-- Skills -->
         <section id="skills" class={sectionClass}>
-            <h2 class="label">04 / Keahlian</h2>
+            <h2 class="text-xl font-medium tracking-tight">Keahlian</h2>
             <dl class="grid border-t border-line sm:grid-cols-2">
                 <div class="border-b border-line py-5 sm:pr-8">
                     <dt class="font-medium">Backend</dt>
@@ -317,7 +317,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
 
         <!-- Services teaser; full pricing and process live on /layanan -->
         <section id="services" class={sectionClass}>
-            <h2 class="label">05 / Layanan</h2>
+            <h2 class="text-xl font-medium tracking-tight">Layanan</h2>
             <div>
                 <p class="max-w-3xl text-lg leading-relaxed">
                     Menerima proyek untuk bisnis dan instansi: website, aplikasi web fullstack, backend API &amp; integrasi, serta maintenance.
@@ -332,7 +332,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
 
         <!-- Articles -->
         <section id="articles" class={sectionClass}>
-            <h2 class="label">06 / Tulisan</h2>
+            <h2 class="text-xl font-medium tracking-tight">Tulisan</h2>
             <ul id="articles-list" class="divide-y divide-line border-y border-line">
                 {articles.map((article) => <li>
                     <a href={`/articles/${article.slug}/`} class="group grid gap-2 py-6 sm:grid-cols-[170px_1fr]">
@@ -348,8 +348,8 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
 
         <!-- Contact -->
         <section id="contact" class="border-t border-line py-20 scroll-mt-16 md:py-28">
-            <p class="label">07 / Kontak</p>
-            <h2 class="mt-6 max-w-3xl text-4xl font-medium leading-[1.02] tracking-tight sm:text-6xl">Punya sistem<br><span class="text-mute">yang perlu dibangun</span><br><span class="text-accent">atau dirapikan</span>?</h2>
+            <p class="text-sm text-mute">Kontak</p>
+            <h2 class="mt-6 max-w-3xl text-3xl font-medium leading-[1.1] tracking-tight sm:text-5xl">Punya sistem<br><span class="text-mute">yang perlu dibangun atau dirapikan?</span></h2>
             <p class="mt-6 max-w-xl text-lg leading-relaxed text-mute">Kirim gambaran kebutuhan Anda melalui email.</p>
             <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <a href="mailto:wahyuakbar.work@gmail.com" data-mailto class="contact-email u font-medium tracking-tight">wahyuakbar.work@gmail.com</a>
@@ -370,7 +370,7 @@ const sectionClass = 'grid gap-6 border-t border-line py-16 scroll-mt-16 md:grid
                 <p class="font-medium text-ink">Wahyu Akbar Wibowo</p>
                 <p class="mt-1">Fullstack Developer · Bojonegoro, Indonesia</p>
             </div>
-            <p class="label border border-line px-3 py-1.5">&copy; <span id="year"></span> Wahyu Akbar Wibowo</p>
+            <p>&copy; <span id="year"></span> Wahyu Akbar Wibowo</p>
         </div>
     </footer>
 
